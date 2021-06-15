@@ -51,3 +51,11 @@ include::{snippets}/user-create-fail/http-request.adoc[]
 
 ==== Response
 include::{snippets}/user-create-fail/http-response.adoc[]
+
+=== 유저 업데이트
+
+==== Request
+include::{snippets}/user-update/http-request.adoc[]
+
+==== Response
+include::{snippets}/user-update/http-response.adoc[]
