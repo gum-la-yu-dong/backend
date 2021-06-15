@@ -37,7 +37,6 @@ endif::[]
 == User (유저)
 
 === 유저 생성
-
 ==== Request
 include::{snippets}/user-create/http-request.adoc[]
 
@@ -45,7 +44,6 @@ include::{snippets}/user-create/http-request.adoc[]
 include::{snippets}/user-create/http-response.adoc[]
 
 === 유저 생성 실패
-
 ==== Request
 include::{snippets}/user-create-fail/http-request.adoc[]
 
@@ -53,9 +51,66 @@ include::{snippets}/user-create-fail/http-request.adoc[]
 include::{snippets}/user-create-fail/http-response.adoc[]
 
 === 유저 업데이트
-
 ==== Request
 include::{snippets}/user-update/http-request.adoc[]
 
 ==== Response
 include::{snippets}/user-update/http-response.adoc[]
+
+== Post (게시글)
+
+=== 게시글 생성 - 성공
+==== Request
+include::{snippets}/post-create/http-request.adoc[]
+
+==== Response
+include::{snippets}/post-create/http-response.adoc[]
+
+=== 게시글 생성 - 실패
+==== Request
+include::{snippets}/post-create-fail/http-request.adoc[]
+
+==== Response
+include::{snippets}/post-create-fail/http-response.adoc[]
+
+=== 게시글 업데이트 - 성공
+==== Request
+include::{snippets}/post-update/http-request.adoc[]
+
+==== Response
+include::{snippets}/post-update/http-response.adoc[]
+
+=== 게시글 업데이트 - 실패
+==== Request
+include::{snippets}/post-update-fail/http-request.adoc[]
+
+==== Response
+include::{snippets}/post-update-fail/http-response.adoc[]
+
+=== 게시글 조회 - 성공
+==== Request
+include::{snippets}/post-find/http-request.adoc[]
+
+==== Response
+include::{snippets}/post-find/http-response.adoc[]
+
+=== 게시글 조회 - 실패
+==== Request
+include::{snippets}/post-find-fail/http-request.adoc[]
+
+==== Response
+include::{snippets}/post-find-fail/http-response.adoc[]
+
+=== 게시글 삭제 - 성공
+==== Request
+include::{snippets}/post-delete/http-request.adoc[]
+
+==== Response
+include::{snippets}/post-delete/http-response.adoc[]
+
+=== 게시글 삭제 - 실패
+==== Request
+include::{snippets}/post-delete-fail/http-request.adoc[]
+
+==== Response
+include::{snippets}/post-delete-fail/http-response.adoc[]
