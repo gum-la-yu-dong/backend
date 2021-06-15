@@ -1,0 +1,26 @@
+ifndef::snippets[]
+:snippets: ../../../build/generated-snippets
+endif::[]
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+
+== User (유저)
+
+=== 유저 생성
+
+==== Request
+include::{snippets}/user-create/http-request.adoc[]
+
+==== Response
+include::{snippets}/user-create/http-response.adoc[]
+
+=== 유저 생성 실패
+
+==== Request
+include::{snippets}/user-create-fail/http-request.adoc[]
+
+==== Response
+include::{snippets}/user-create-fail/http-response.adoc[]
