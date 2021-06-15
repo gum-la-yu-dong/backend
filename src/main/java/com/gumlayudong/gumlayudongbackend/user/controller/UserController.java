@@ -1,13 +1,11 @@
 package com.gumlayudong.gumlayudongbackend.user.controller;
 
 import com.gumlayudong.gumlayudongbackend.user.application.UserService;
-import com.gumlayudong.gumlayudongbackend.user.dto.UserSaveRequest;
+import com.gumlayudong.gumlayudongbackend.user.dto.UserResponse;
+import com.gumlayudong.gumlayudongbackend.user.dto.UserRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
@@ -15,17 +13,11 @@ import java.net.URI;
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UserController {
-
     private final UserService userService;
 
     @PostMapping("/signup")
-    public ResponseEntity<Void> signUp(@RequestBody UserSaveRequest userSaveRequest) {
-        try {
-            String result = userService.save(userSaveRequest);
-            System.out.println("result = " + result);
-            return ResponseEntity.created(URI.create("/api/users")).build();
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().build();
-        }
+    public ResponseEntity<Void> signUp(@RequestBody UserRequest userRequest) {
+        UserResponse user = userService.save(userRequest);
+        return ResponseEntity.created(URI.create("/api/users/" + user.getId())).build();
     }
 }

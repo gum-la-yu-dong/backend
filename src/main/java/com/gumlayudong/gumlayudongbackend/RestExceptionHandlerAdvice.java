@@ -3,6 +3,7 @@ package com.gumlayudong.gumlayudongbackend;
 import com.gumlayudong.gumlayudongbackend.exception.CommonException;
 import com.gumlayudong.gumlayudongbackend.exception.ExceptionResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -21,6 +22,6 @@ public class RestExceptionHandlerAdvice {
     public ResponseEntity<ExceptionResponse> serverException(Exception exception) {
         String message = exception.getMessage();
         log.error(message);
-        return ResponseEntity.badRequest().body(new ExceptionResponse(message));
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ExceptionResponse(message));
     }
 }

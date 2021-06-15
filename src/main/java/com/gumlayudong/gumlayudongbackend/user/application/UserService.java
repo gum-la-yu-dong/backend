@@ -1,11 +1,12 @@
 package com.gumlayudong.gumlayudongbackend.user.application;
 
-import com.gumlayudong.gumlayudongbackend.user.dto.UserSaveRequest;
+import com.gumlayudong.gumlayudongbackend.user.dto.UserResponse;
+import com.gumlayudong.gumlayudongbackend.user.dto.UserRequest;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    public String save(UserSaveRequest saveRequest) {
+    public UserResponse save(UserRequest saveRequest) {
         return null;
     }
 }
