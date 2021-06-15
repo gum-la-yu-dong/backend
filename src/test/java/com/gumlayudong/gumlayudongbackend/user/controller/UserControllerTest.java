@@ -36,7 +36,7 @@ class UserControllerTest {
     void init() {
         userRequest = new UserRequest("gump@naver.com", "나는 잘생긴 권영훈", "123", "나는 잘생김", "/user/img", "www.hello.com");
         userErrorRequest = new UserRequest(null, null, null, null, null, null);
-        userResponse = new UserResponse(1L, "나는 잘생긴 권영훈", "123", "나는 잘생김", "/user/img", "www.hello.com");
+        userResponse = new UserResponse(1L, "나는 잘생긴 권영훈",  "나는 잘생김", "/user/img", "www.hello.com");
     }
 
     @DisplayName("사용자 가입 - 성공")
