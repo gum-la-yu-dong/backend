@@ -11,13 +11,15 @@ public class UserResponse {
     private String nickname;
     private String password;
     private String introduction;
+    private String profileUrl;
     private String githubUrl;
 
-    public UserResponse(Long id, String nickname, String password, String introduction, String githubUrl) {
+    public UserResponse(Long id, String nickname, String password, String introduction, String profileUrl, String githubUrl) {
         this.id = id;
         this.nickname = nickname;
         this.password = password;
         this.introduction = introduction;
+        this.profileUrl = profileUrl;
         this.githubUrl = githubUrl;
     }
 }
