@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
-<title>공통 status code</title>
+<title>Common Responses</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -441,56 +441,51 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_공통_status_code">공통 status code</a></li>
-<li><a href="#_공통예외">공통예외</a></li>
-<li><a href="#_user_유저">User (유저)</a>
 <ul class="sectlevel2">
-<li><a href="#_유저_생성">유저 생성</a>
-<ul class="sectlevel3">
-<li><a href="#_request">Request</a></li>
-<li><a href="#_response">Response</a></li>
+<li><a href="#_common_responses">Common Responses</a></li>
+<li><a href="#_user_사용자">User (사용자)</a>
+<ul class="sectlevel2">
+<li><a href="#_사용자_가입">사용자 가입</a></li>
+<li><a href="#_사용자_조회">사용자 조회</a></li>
+<li><a href="#_사용자_업데이트">사용자 업데이트</a></li>
+<li><a href="#_사용자_삭제">사용자 삭제</a></li>
 </ul>
 </li>
-<li><a href="#_유저_생성_실패">유저 생성 실패</a>
-<ul class="sectlevel3">
-<li><a href="#_request_2">Request</a></li>
-<li><a href="#_response_2">Response</a></li>
-</ul>
-</li>
+<li><a href="#_post_게시글">Post (게시글)</a>
+<ul class="sectlevel2">
+<li><a href="#_게시글_생성">게시글 생성</a></li>
+<li><a href="#_게시글_업데이트">게시글 업데이트</a></li>
+<li><a href="#_게시글_조회">게시글 조회</a></li>
+<li><a href="#_게시글_삭제">게시글 삭제</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_공통_status_code">공통 status code</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_common_responses">Common Responses</h3>
+<div class="sect3">
+<h4 id="_common_status_code">Common Status Code</h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-markup hljs" data-lang="markup"># 생성
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java"># 생성
 ## status code: 201
 ## Headers: Location
 
 # 조회
 ## status code: 200
-## Headers: Ok
 
 # 업데이트
 ## status code: 204
-## Headers: Ok
 
 # 삭제
-## status code: 204
-## Headers: Ok</code></pre>
+## status code: 204</code></pre>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_공통예외">공통예외</h2>
-<div class="sectionbody">
+<div class="sect3">
+<h4 id="_common_exceptions">Common Exceptions</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java"># 클라이언트 입력 예외
@@ -506,53 +501,502 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_user_유저">User (유저)</h2>
+<h2 id="_user_사용자">User (사용자)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_유저_생성">유저 생성</h3>
+<h3 id="_사용자_가입">사용자 가입</h3>
 <div class="sect3">
-<h4 id="_request">Request</h4>
+<h4 id="_성공">성공</h4>
+<div class="sect4">
+<h5 id="_request">Request</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/users/signup HTTP/1.1
 Content-Type: application/json
-Content-Length: 87
-Host: localhost:8080
+Content-Length: 201
+Host: localhost
 
-{"nickname":"하이","password":"123","introduction":"나는 잘생김","githubUrl":""}</code></pre>
+{
+  "email" : "gump@naver.com",
+  "password" : "나는 잘생긴 권영훈",
+  "nickname" : "123",
+  "introduction" : "나는 잘생김",
+  "profileUrl" : "/user/img",
+  "githubUrl" : "www.hello.com"
+}</code></pre>
 </div>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_response">Response</h4>
+<div class="sect4">
+<h5 id="_response">Response</h5>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 201 Created
-Location: /api/users</code></pre>
+Location: /api/users/1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_실패">실패</h4>
+<div class="sect4">
+<h5 id="_request_2">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/users/signup HTTP/1.1
+Content-Type: application/json
+Content-Length: 132
+Host: localhost
+
+{
+  "email" : null,
+  "password" : null,
+  "nickname" : null,
+  "introduction" : null,
+  "profileUrl" : null,
+  "githubUrl" : null
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_2">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 43
+
+{
+  "message" : "잘못된 입력 예시"
+}</code></pre>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_유저_생성_실패">유저 생성 실패</h3>
+<h3 id="_사용자_조회">사용자 조회</h3>
 <div class="sect3">
-<h4 id="_request_2">Request</h4>
+<h4 id="_성공_2">성공</h4>
+<div class="sect4">
+<h5 id="_request_3">Request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/users/signup HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/users?email=xxx@gmail.com HTTP/1.1
+Host: localhost</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_3">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 161
+
+{
+  "id" : 1,
+  "nickname" : "나는 잘생긴 권영훈",
+  "introduction" : "나는 잘생김",
+  "profileUrl" : "/user/img",
+  "githubUrl" : "www.hello.com"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_실패_2">실패</h4>
+<div class="sect4">
+<h5 id="_request_4">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/users?email=@gmail.com HTTP/1.1
+Host: localhost</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_4">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 43
+
+{
+  "message" : "잘못된 입력 예시"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_사용자_업데이트">사용자 업데이트</h3>
+<div class="sect3">
+<h4 id="_성공_3">성공</h4>
+<div class="sect4">
+<h5 id="_request_5">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/users HTTP/1.1
+Content-Type: application/json
+Content-Length: 201
+Host: localhost
+
+{
+  "email" : "gump@naver.com",
+  "password" : "나는 잘생긴 권영훈",
+  "nickname" : "123",
+  "introduction" : "나는 잘생김",
+  "profileUrl" : "/user/img",
+  "githubUrl" : "www.hello.com"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_5">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_실패_3">실패</h4>
+<div class="sect4">
+<h5 id="_request_6">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/users HTTP/1.1
+Content-Type: application/json
+Content-Length: 132
+Host: localhost
+
+{
+  "email" : null,
+  "password" : null,
+  "nickname" : null,
+  "introduction" : null,
+  "profileUrl" : null,
+  "githubUrl" : null
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_6">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 43
+
+{
+  "message" : "잘못된 입력 예시"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_사용자_삭제">사용자 삭제</h3>
+<div class="sect3">
+<h4 id="_성공_4">성공</h4>
+<div class="sect4">
+<h5 id="_request_7">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /api/users?email=xxx@gmail.com HTTP/1.1
+Host: localhost</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_7">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_실패_4">실패</h4>
+<div class="sect4">
+<h5 id="_request_8">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /api/users?email=@gmail.com HTTP/1.1
+Host: localhost</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_8">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 43
+
+{
+  "message" : "잘못된 입력 예시"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_post_게시글">Post (게시글)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_게시글_생성">게시글 생성</h3>
+<div class="sect3">
+<h4 id="_성공_5">성공</h4>
+<div class="sect4">
+<h5 id="_request_9">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/posts HTTP/1.1
+Content-Type: application/json
+Content-Length: 113
+Host: localhost
+
+{
+  "id" : 1,
+  "title" : "검프의 손맛",
+  "content" : "소금 실패",
+  "referenceUrl" : "너무짜.com"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_9">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 201 Created
+Location: /api/posts/1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_실패_5">실패</h4>
+<div class="sect4">
+<h5 id="_request_10">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/posts HTTP/1.1
 Content-Type: application/json
 Content-Length: 88
-Host: localhost:8080
+Host: localhost
 
-{"nickname":"바이0","password":"123","introduction":"나는 잘생김","githubUrl":""}</code></pre>
+{
+  "id" : 1,
+  "title" : "",
+  "content" : "소금 실패",
+  "referenceUrl" : ".com"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_10">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 43
+
+{
+  "message" : "잘못된 입력 예시"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_게시글_업데이트">게시글 업데이트</h3>
+<div class="sect3">
+<h4 id="_성공_6">성공</h4>
+<div class="sect4">
+<h5 id="_request_11">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/posts HTTP/1.1
+Content-Type: application/json
+Content-Length: 113
+Host: localhost
+
+{
+  "id" : 1,
+  "title" : "검프의 손맛",
+  "content" : "소금 실패",
+  "referenceUrl" : "너무짜.com"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_11">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_response_2">Response</h4>
+<h4 id="_실패_6">실패</h4>
+<div class="sect4">
+<h5 id="_request_12">Request</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request</code></pre>
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/posts HTTP/1.1
+Content-Type: application/json
+Content-Length: 88
+Host: localhost
+
+{
+  "id" : 1,
+  "title" : "",
+  "content" : "소금 실패",
+  "referenceUrl" : ".com"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_12">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 43
+
+{
+  "message" : "잘못된 입력 예시"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_게시글_조회">게시글 조회</h3>
+<div class="sect3">
+<h4 id="_성공_7">성공</h4>
+<div class="sect4">
+<h5 id="_request_13">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/posts/1 HTTP/1.1
+Host: localhost</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_13">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 113
+
+{
+  "id" : 1,
+  "title" : "검프의 손맛",
+  "content" : "소금 실패",
+  "referenceUrl" : "너무짜.com"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_실패_7">실패</h4>
+<div class="sect4">
+<h5 id="_request_14">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/posts/1 HTTP/1.1
+Host: localhost</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_14">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 43
+
+{
+  "message" : "잘못된 입력 예시"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_게시글_삭제">게시글 삭제</h3>
+<div class="sect3">
+<h4 id="_성공_8">성공</h4>
+<div class="sect4">
+<h5 id="_request_15">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /api/posts/1 HTTP/1.1
+Host: localhost</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_15">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_실패_8">실패</h4>
+<div class="sect4">
+<h5 id="_request_16">Request</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /api/posts/1 HTTP/1.1
+Host: localhost</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_response_16">Response</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 43
+
+{
+  "message" : "잘못된 입력 예시"
+}</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -562,7 +1006,7 @@ Host: localhost:8080
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-15 16:21:28 +0900
+Last updated 2021-06-16 04:08:59 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>

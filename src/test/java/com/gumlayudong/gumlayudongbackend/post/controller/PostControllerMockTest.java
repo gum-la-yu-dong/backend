@@ -1,5 +1,6 @@
 package com.gumlayudong.gumlayudongbackend.post.controller;
 
+import com.gumlayudong.gumlayudongbackend.ControllerMockTest;
 import com.gumlayudong.gumlayudongbackend.exception.InvalidInputException;
 import com.gumlayudong.gumlayudongbackend.exception.NotFoundException;
 import com.gumlayudong.gumlayudongbackend.post.dto.PostRequest;
@@ -9,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -17,12 +17,11 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.*;
-import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document;
 
 @DisplayName("게시글 컨트롤러 테스트")
 @WebFluxTest(controllers = PostController.class)
-@AutoConfigureRestDocs
-public class PostControllerTest {
+public class PostControllerMockTest extends ControllerMockTest {
+
     @Autowired
     private WebTestClient webTestClient;
 
@@ -142,7 +141,7 @@ public class PostControllerTest {
                 .expectStatus()
                 .isBadRequest()
                 .expectBody()
-                .consumeWith(document("post-delete-fail"));
+                .consumeWith(toDocument("post-delete-fail"));
     }
 
     private WebTestClient.BodyContentSpec 게시글_삭제됨(WebTestClient.ResponseSpec deleteResponse) {
@@ -150,7 +149,7 @@ public class PostControllerTest {
                 .expectStatus()
                 .isNoContent()
                 .expectBody()
-                .consumeWith(document("post-delete"));
+                .consumeWith(toDocument("post-delete"));
     }
 
     private WebTestClient.BodyContentSpec 게시글_조회_실패됨(WebTestClient.ResponseSpec findResponse) {
@@ -158,7 +157,7 @@ public class PostControllerTest {
                 .expectStatus()
                 .isBadRequest()
                 .expectBody()
-                .consumeWith(document("post-find-fail"));
+                .consumeWith(toDocument("post-find-fail"));
     }
 
     private WebTestClient.BodyContentSpec 게시글_조회됨(WebTestClient.ResponseSpec findResponse) {
@@ -166,7 +165,7 @@ public class PostControllerTest {
                 .expectStatus()
                 .isOk()
                 .expectBody()
-                .consumeWith(document("post-find"));
+                .consumeWith(toDocument("post-find"));
     }
 
     private WebTestClient.ResponseSpec 게시글_조회_요청() {
@@ -191,14 +190,14 @@ public class PostControllerTest {
         return updateRequest
                 .expectStatus()
                 .isNoContent()
-                .expectBody().consumeWith(document("post-update"));
+                .expectBody().consumeWith(toDocument("post-update"));
     }
 
     private WebTestClient.BodyContentSpec 게시글_수정_실패됨(WebTestClient.ResponseSpec updateRequest) {
         return updateRequest
                 .expectStatus()
                 .isBadRequest()
-                .expectBody().consumeWith(document("post-update-fail"));
+                .expectBody().consumeWith(toDocument("post-update-fail"));
     }
 
     private WebTestClient.ResponseSpec 게시글_수정_요청(PostRequest updateRequest) {
@@ -220,12 +219,12 @@ public class PostControllerTest {
         saveResponse.expectStatus()
                 .isCreated()
                 .expectHeader().exists("Location")
-                .expectBody().consumeWith(document("post-create"));
+                .expectBody().consumeWith(toDocument("post-create"));
     }
 
     private void 게시글_생성_실패됨(WebTestClient.ResponseSpec saveResponse) {
         saveResponse.expectStatus()
                 .isBadRequest()
-                .expectBody().consumeWith(document("post-create-fail"));
+                .expectBody().consumeWith(toDocument("post-create-fail"));
     }
 }

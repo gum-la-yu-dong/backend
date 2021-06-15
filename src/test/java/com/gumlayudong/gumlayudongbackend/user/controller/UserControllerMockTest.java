@@ -1,5 +1,6 @@
 package com.gumlayudong.gumlayudongbackend.user.controller;
 
+import com.gumlayudong.gumlayudongbackend.ControllerMockTest;
 import com.gumlayudong.gumlayudongbackend.exception.InvalidInputException;
 import com.gumlayudong.gumlayudongbackend.user.application.UserService;
 import com.gumlayudong.gumlayudongbackend.user.dto.UserRequest;
@@ -8,7 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -16,12 +16,10 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.*;
-import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document;
 
 @DisplayName("유저 컨트롤러 테스트")
 @WebFluxTest(controllers = UserController.class)
-@AutoConfigureRestDocs
-class UserControllerTest {
+class UserControllerMockTest extends ControllerMockTest {
     @Autowired
     private WebTestClient webTestClient;
 
@@ -180,49 +178,49 @@ class UserControllerTest {
         saveResponse.expectStatus()
                 .isCreated()
                 .expectHeader().exists("Location")
-                .expectBody().consumeWith(document("user-create"));
+                .expectBody().consumeWith(toDocument("user-create"));
     }
 
     private void 사용자_생성_실패됨(WebTestClient.ResponseSpec saveResponse) {
         saveResponse.expectStatus()
                 .isBadRequest()
-                .expectBody().consumeWith(document("user-create-fail"));
+                .expectBody().consumeWith(toDocument("user-create-fail"));
     }
 
     private void 사용자_업데이트_성공함(WebTestClient.ResponseSpec updateResponse) {
         updateResponse.expectStatus()
                 .isNoContent()
-                .expectBody().consumeWith(document("user-update"));
+                .expectBody().consumeWith(toDocument("user-update"));
     }
 
     private void 사용자_조회됨(WebTestClient.ResponseSpec saveResponse) {
         saveResponse.expectStatus()
                 .isOk()
-                .expectBody().consumeWith(document("user-detail"));
+                .expectBody().consumeWith(toDocument("user-detail"));
     }
 
     private void 사용자_조회_요청_실패(WebTestClient.ResponseSpec saveResponse) {
         saveResponse.expectStatus()
                 .isBadRequest()
                 .expectBody()
-                .consumeWith(document("user-detail-fail"));
+                .consumeWith(toDocument("user-detail-fail"));
     }
 
     private void 사용자_업데이트_실패함(WebTestClient.ResponseSpec updateResponse) {
         updateResponse.expectStatus()
                 .isBadRequest()
-                .expectBody().consumeWith(document("user-update-fail"));
+                .expectBody().consumeWith(toDocument("user-update-fail"));
     }
 
     private void 사용자_삭제됨(WebTestClient.ResponseSpec saveResponse) {
         saveResponse.expectStatus()
                 .isNoContent()
-                .expectBody().consumeWith(document("user-delete"));
+                .expectBody().consumeWith(toDocument("user-delete"));
     }
 
     private void 사용자_삭제_실패함(WebTestClient.ResponseSpec saveResponse) {
         saveResponse.expectStatus()
                 .isBadRequest()
-                .expectBody().consumeWith(document("user-delete-fail"));
+                .expectBody().consumeWith(toDocument("user-delete-fail"));
     }
 }
