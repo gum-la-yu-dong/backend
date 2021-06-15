@@ -9,5 +9,4 @@ class GumlayudongBackendApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }

@@ -19,7 +19,7 @@ import static org.mockito.BDDMockito.*;
 import static org.springframework.restdocs.webtestclient.WebTestClientRestDocumentation.document;
 
 @DisplayName("유저 컨트롤러 테스트")
-@WebFluxTest
+@WebFluxTest(controllers = UserController.class)
 @AutoConfigureRestDocs
 class UserControllerTest {
     @Autowired
