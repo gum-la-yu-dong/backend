@@ -6,6 +6,33 @@ endif::[]
 :source-highlighter: highlightjs
 :toc: left
 :toclevels: 4
+== 공통 status code
+```java
+# 생성
+## status code: 201
+## Headers: Location
+
+# 조회
+## status code: 200
+
+# 업데이트
+## status code: 204
+
+# 삭제
+## status code: 204
+```
+
+== 공통예외
+```java
+# 클라이언트 입력 예외
+## status code: 400
+
+# 인증 예외
+## status code: 401
+
+# 서버 내부 예외
+## status code: 500
+```
 
 == User (유저)
 
