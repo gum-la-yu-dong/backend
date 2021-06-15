@@ -36,7 +36,7 @@ class UserControllerTest {
     void init() {
         userRequest = new UserRequest("gump@naver.com", "나는 잘생긴 권영훈", "123", "나는 잘생김", "/user/img", "www.hello.com");
         userErrorRequest = new UserRequest(null, null, null, null, null, null);
-        userResponse = new UserResponse(1L, "나는 잘생긴 권영훈",  "나는 잘생김", "/user/img", "www.hello.com");
+        userResponse = new UserResponse(1L, "나는 잘생긴 권영훈", "나는 잘생김", "/user/img", "www.hello.com");
     }
 
     @DisplayName("사용자 가입 - 성공")
@@ -143,24 +143,6 @@ class UserControllerTest {
         사용자_삭제_실패함(saveResponse);
     }
 
-    private void 사용자_삭제_실패함(WebTestClient.ResponseSpec saveResponse) {
-        saveResponse.expectStatus()
-                .isBadRequest()
-                .expectBody().consumeWith(document("user-delete-fail"));
-    }
-
-    private void 사용자_삭제됨(WebTestClient.ResponseSpec saveResponse) {
-        saveResponse.expectStatus()
-                .isNoContent()
-                .expectBody().consumeWith(document("user-delete"));
-    }
-
-    private void 사용자_업데이트_실패함(WebTestClient.ResponseSpec updateResponse) {
-        updateResponse.expectStatus()
-                .isBadRequest()
-                .expectBody().consumeWith(document("user-update-fail"));
-    }
-
 
     private WebTestClient.ResponseSpec 사용자_업데이트_요청(UserRequest userRequest) {
         return webTestClient.put().uri("/api/users")
@@ -224,5 +206,23 @@ class UserControllerTest {
                 .isBadRequest()
                 .expectBody()
                 .consumeWith(document("user-detail-fail"));
+    }
+
+    private void 사용자_업데이트_실패함(WebTestClient.ResponseSpec updateResponse) {
+        updateResponse.expectStatus()
+                .isBadRequest()
+                .expectBody().consumeWith(document("user-update-fail"));
+    }
+
+    private void 사용자_삭제됨(WebTestClient.ResponseSpec saveResponse) {
+        saveResponse.expectStatus()
+                .isNoContent()
+                .expectBody().consumeWith(document("user-delete"));
+    }
+
+    private void 사용자_삭제_실패함(WebTestClient.ResponseSpec saveResponse) {
+        saveResponse.expectStatus()
+                .isBadRequest()
+                .expectBody().consumeWith(document("user-delete-fail"));
     }
 }

@@ -1,7 +1,7 @@
 package com.gumlayudong.gumlayudongbackend.user.application;
 
-import com.gumlayudong.gumlayudongbackend.user.dto.UserResponse;
 import com.gumlayudong.gumlayudongbackend.user.dto.UserRequest;
+import com.gumlayudong.gumlayudongbackend.user.dto.UserResponse;
 import org.springframework.stereotype.Service;
 
 @Service
