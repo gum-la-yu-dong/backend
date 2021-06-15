@@ -23,4 +23,22 @@ public class UserController {
         UserResponse user = userService.save(userRequest);
         return ResponseEntity.created(URI.create("/api/users/" + user.getId())).build();
     }
+
+    @GetMapping
+    public ResponseEntity<UserResponse> findUser(@RequestParam String email) {
+        UserResponse response = userService.findUserByEmail(email);
+        return ResponseEntity.ok().body(response);
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> update(@RequestBody UserRequest userRequest) {
+        userService.update(userRequest);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> delete(@RequestParam String email) {
+        userService.deleteByEmail(email);
+        return ResponseEntity.noContent().build();
+    }
 }
