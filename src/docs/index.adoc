@@ -4,8 +4,13 @@ endif::[]
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
-:toc: left
+:toc: right
 :toclevels: 2
+:author: Gump, Ryan
+:email: https://github.com/gum-la-yu-dong/backend
+:htmlsyntax: utf8
+
+= 검라유동 Api Specification
 
 === Common Responses
 ==== Common Status Codes

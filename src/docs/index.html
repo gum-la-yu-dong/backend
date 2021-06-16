@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
-<title>Common Responses</title>
+<meta name="author" content="Gump, Ryan">
+<title>검라유동 Api Specification</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -437,8 +438,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/styles/github.min.css">
 </head>
-<body class="book toc2 toc-left">
+<body class="book toc2 toc-right">
 <div id="header">
+<h1>검라유동 Api Specification</h1>
+<div class="details">
+<span id="author" class="author">Gump, Ryan</span><br>
+<span id="email" class="email"><a href="https://github.com/gum-la-yu-dong/backend" class="bare">https://github.com/gum-la-yu-dong/backend</a></span><br>
+</div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel2">
@@ -466,7 +472,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_common_responses">Common Responses</h3>
 <div class="sect3">
-<h4 id="_common_status_code">Common Status Code</h4>
+<h4 id="_common_status_codes">Common Status Codes</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java"># 생성
@@ -769,15 +775,10 @@ Content-Length: 43
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/posts HTTP/1.1
 Content-Type: application/json
-Content-Length: 113
-Host: localhost
+Content-Length: 92
+Host: localhost:8080
 
-{
-  "id" : 1,
-  "title" : "검프의 손맛",
-  "content" : "소금 실패",
-  "referenceUrl" : "너무짜.com"
-}</code></pre>
+{"id":1,"title":"검프의 손맛","content":"소금 실패","referenceUrl":"너무짜.com"}</code></pre>
 </div>
 </div>
 </div>
@@ -799,15 +800,10 @@ Location: /api/posts/1</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/posts HTTP/1.1
 Content-Type: application/json
-Content-Length: 88
-Host: localhost
+Content-Length: 67
+Host: localhost:8080
 
-{
-  "id" : 1,
-  "title" : "",
-  "content" : "소금 실패",
-  "referenceUrl" : ".com"
-}</code></pre>
+{"id":1,"title":"","content":"소금 실패","referenceUrl":".com"}</code></pre>
 </div>
 </div>
 </div>
@@ -817,11 +813,9 @@ Host: localhost
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
 Content-Type: application/json
-Content-Length: 43
+Content-Length: 37
 
-{
-  "message" : "잘못된 입력 예시"
-}</code></pre>
+{"message":"잘못된 입력 예시"}</code></pre>
 </div>
 </div>
 </div>
@@ -837,15 +831,10 @@ Content-Length: 43
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/posts HTTP/1.1
 Content-Type: application/json
-Content-Length: 113
-Host: localhost
+Content-Length: 92
+Host: localhost:8080
 
-{
-  "id" : 1,
-  "title" : "검프의 손맛",
-  "content" : "소금 실패",
-  "referenceUrl" : "너무짜.com"
-}</code></pre>
+{"id":1,"title":"검프의 손맛","content":"소금 실패","referenceUrl":"너무짜.com"}</code></pre>
 </div>
 </div>
 </div>
@@ -866,15 +855,10 @@ Host: localhost
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/posts HTTP/1.1
 Content-Type: application/json
-Content-Length: 88
-Host: localhost
+Content-Length: 67
+Host: localhost:8080
 
-{
-  "id" : 1,
-  "title" : "",
-  "content" : "소금 실패",
-  "referenceUrl" : ".com"
-}</code></pre>
+{"id":1,"title":"","content":"소금 실패","referenceUrl":".com"}</code></pre>
 </div>
 </div>
 </div>
@@ -884,11 +868,9 @@ Host: localhost
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
 Content-Type: application/json
-Content-Length: 43
+Content-Length: 37
 
-{
-  "message" : "잘못된 입력 예시"
-}</code></pre>
+{"message":"잘못된 입력 예시"}</code></pre>
 </div>
 </div>
 </div>
@@ -903,7 +885,7 @@ Content-Length: 43
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/posts/1 HTTP/1.1
-Host: localhost</code></pre>
+Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
@@ -913,14 +895,9 @@ Host: localhost</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json
-Content-Length: 113
+Content-Length: 92
 
-{
-  "id" : 1,
-  "title" : "검프의 손맛",
-  "content" : "소금 실패",
-  "referenceUrl" : "너무짜.com"
-}</code></pre>
+{"id":1,"title":"검프의 손맛","content":"소금 실패","referenceUrl":"너무짜.com"}</code></pre>
 </div>
 </div>
 </div>
@@ -932,7 +909,7 @@ Content-Length: 113
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /api/posts/1 HTTP/1.1
-Host: localhost</code></pre>
+Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
@@ -942,11 +919,9 @@ Host: localhost</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
 Content-Type: application/json
-Content-Length: 43
+Content-Length: 37
 
-{
-  "message" : "잘못된 입력 예시"
-}</code></pre>
+{"message":"잘못된 입력 예시"}</code></pre>
 </div>
 </div>
 </div>
@@ -961,7 +936,7 @@ Content-Length: 43
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /api/posts/1 HTTP/1.1
-Host: localhost</code></pre>
+Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
@@ -981,7 +956,7 @@ Host: localhost</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">DELETE /api/posts/1 HTTP/1.1
-Host: localhost</code></pre>
+Host: localhost:8080</code></pre>
 </div>
 </div>
 </div>
@@ -991,11 +966,9 @@ Host: localhost</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 400 Bad Request
 Content-Type: application/json
-Content-Length: 43
+Content-Length: 37
 
-{
-  "message" : "잘못된 입력 예시"
-}</code></pre>
+{"message":"잘못된 입력 예시"}</code></pre>
 </div>
 </div>
 </div>
@@ -1006,7 +979,7 @@ Content-Length: 43
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-16 04:08:59 +0900
+Last updated 2021-06-16 04:18:05 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
