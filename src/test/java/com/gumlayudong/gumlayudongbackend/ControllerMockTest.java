@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.MockBeans;
+import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
 import org.springframework.restdocs.operation.preprocess.OperationRequestPreprocessor;
 import org.springframework.restdocs.operation.preprocess.OperationResponsePreprocessor;
 import org.springframework.test.web.reactive.server.EntityExchangeResult;
@@ -21,6 +23,9 @@ import static org.springframework.restdocs.webtestclient.WebTestClientRestDocume
 public class ControllerMockTest {
     @Autowired
     protected WebTestClient webTestClient;
+
+    @MockBean
+    protected JpaMetamodelMappingContext jpaMetamodelMappingContext;
 
     @MockBean
     protected PostService postService;

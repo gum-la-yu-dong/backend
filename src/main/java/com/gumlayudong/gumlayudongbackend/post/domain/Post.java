@@ -4,28 +4,42 @@ import com.gumlayudong.gumlayudongbackend.comment.domain.Comment;
 import com.gumlayudong.gumlayudongbackend.common.domain.BaseEntity;
 import com.gumlayudong.gumlayudongbackend.exception.InvalidInputException;
 import com.gumlayudong.gumlayudongbackend.like.domain.Like;
-import com.gumlayudong.gumlayudongbackend.tag.Tag;
 import com.gumlayudong.gumlayudongbackend.user.domain.User;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post extends BaseEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "post_id")
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private final List<Comment> comments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private final List<Like> likes = new ArrayList<>();
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private final List<PostTag> postTags = new ArrayList<>();
+
     private String title;
     private String content;
     private String referenceUrl;
-    private User user;
-    private List<Comment> comments = new ArrayList<>();
-    private List<Like> likes = new ArrayList<>();
-    private List<PostTag> postTags  = new ArrayList<>();
 
     public Post(String title, String content, String referenceUrl, User user) {
         this(null, title, content, referenceUrl, user);

@@ -3,18 +3,23 @@ package com.gumlayudong.gumlayudongbackend.common.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.EntityListeners;
+import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+@EntityListeners(AuditingEntityListener.class)
+@MappedSuperclass
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BaseEntity {
 
-    private LocalDateTime createdAt;
-    private LocalDateTime modifiedAt;
+    @CreatedDate
+    private LocalDateTime createdDate;
 
-    public BaseEntity(LocalDateTime createdAt, LocalDateTime modifiedAt) {
-        this.createdAt = createdAt;
-        this.modifiedAt = modifiedAt;
-    }
+    @LastModifiedDate
+    private LocalDateTime lastModifiedDate;
 }
