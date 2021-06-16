@@ -1,6 +1,7 @@
 package com.gumlayudong.gumlayudongbackend.post.domain;
 
 import com.gumlayudong.gumlayudongbackend.exception.InvalidInputException;
+import com.gumlayudong.gumlayudongbackend.user.domain.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,33 +14,34 @@ import static org.assertj.core.api.Assertions.*;
 
 class PostTest {
 
+    private User user;
     private Post post;
 
     @BeforeEach
     public void setUp() {
-        this.post = new Post("검프", "포레스트", "포레스트.com", new Post.User());
+        this.user = new User("gump@naer.com", "123", "닉네", "", "", "");
+        this.post = new Post("검프", "포레스트", "포레스트.com", user);
     }
 
     @DisplayName("게시글 생성 - 성공")
     @Test
     public void create() {
-        assertThatCode(() -> new Post("검프", "포레스트", "포레스트.com", new Post.User()))
+        assertThatCode(() -> new Post("검프", "포레스트", "포레스트.com", user))
                 .doesNotThrowAnyException();
     }
 
     @DisplayName("게시글 생성 - referenceUrl - 실패")
     @ParameterizedTest
     @NullSource
-    @ValueSource(strings = " ")
     public void createFailByInvalidReferenceUrl(String target) {
-        assertThatThrownBy(() -> new Post("널", "안되요", target, new Post.User()))
+        assertThatThrownBy(() -> new Post("널", "안되요", target, user))
                 .isInstanceOf(InvalidInputException.class);
     }
 
     @DisplayName("게시글 생성 - user - 실패")
     @ParameterizedTest
     @NullSource
-    public void createFailByInvalidReferenceUrl(Post.User target) {
+    public void createFailByInvalidReferenceUrl(User target) {
         assertThatThrownBy(() -> new Post("널", "안되요", "하아", target))
                 .isInstanceOf(InvalidInputException.class);
     }
@@ -49,7 +51,7 @@ class PostTest {
     @NullAndEmptySource
     @ValueSource(strings = " ")
     public void createFailByInvalidTitle(String target) {
-        assertThatThrownBy(() -> new Post(target, "검프", "포레스트.com", new Post.User()))
+        assertThatThrownBy(() -> new Post(target, "검프", "포레스트.com", user))
                 .isInstanceOf(InvalidInputException.class);
     }
 
@@ -58,7 +60,7 @@ class PostTest {
     @NullAndEmptySource
     @ValueSource(strings = " ")
     public void createFailByInvalidContent(String target) {
-        assertThatThrownBy(() -> new Post("검푸", target, "포레스트.com", new Post.User()))
+        assertThatThrownBy(() -> new Post("검푸", target, "포레스트.com", user))
                 .isInstanceOf(InvalidInputException.class);
     }
 
@@ -78,7 +80,6 @@ class PostTest {
     @DisplayName("게시글 수정 - referenceUrl - 실패")
     @ParameterizedTest
     @NullSource
-    @ValueSource(strings = " ")
     public void modifyFailByInvalidReferenceUrl(String target) {
         assertThatThrownBy(() -> post.modifyReferenceUrl(target)).isInstanceOf(InvalidInputException.class);
     }

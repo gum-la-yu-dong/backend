@@ -1,20 +1,26 @@
 package com.gumlayudong.gumlayudongbackend.post.domain;
 
+import com.gumlayudong.gumlayudongbackend.common.domain.BaseEntity;
 import com.gumlayudong.gumlayudongbackend.exception.InvalidInputException;
+import com.gumlayudong.gumlayudongbackend.user.domain.User;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
 @Getter
-public class Post {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class Post extends BaseEntity {
+
     private Long id;
     private String title;
     private String content;
     private String referenceUrl;
     private User user;
 
-    static class User{
-        //needs to be deleted
+    public Post(String title, String content, String referenceUrl, User user) {
+        this(null, title, content, referenceUrl, user);
     }
 
     public Post(Long id, String title, String content, String referenceUrl, User user) {
@@ -27,10 +33,6 @@ public class Post {
         this.content = content;
         this.referenceUrl = referenceUrl;
         this.user = user;
-    }
-
-    public Post(String title, String content, String referenceUrl, User user) {
-        this(null, title, content, referenceUrl, user);
     }
 
     public void modifyTitle(String title) {
@@ -50,7 +52,6 @@ public class Post {
 
     private void validateReferenceUrl(String referenceUrl) {
         validateNull(referenceUrl);
-        validateBlank(referenceUrl);
     }
 
     private void validateUser(User user) {
@@ -80,6 +81,7 @@ public class Post {
             throw new InvalidInputException("빈 값은 입력값으로 쓰실 수 없습니다.");
         }
     }
+
     private void validateBlank(String text) {
         if (text.isBlank()) {
             throw new InvalidInputException("공백 값은 입력값으로 쓰실 수 없습니다.");

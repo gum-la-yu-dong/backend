@@ -2,15 +2,11 @@ package com.gumlayudong.gumlayudongbackend.user.controller;
 
 import com.gumlayudong.gumlayudongbackend.ControllerMockTest;
 import com.gumlayudong.gumlayudongbackend.exception.InvalidInputException;
-import com.gumlayudong.gumlayudongbackend.user.application.UserService;
 import com.gumlayudong.gumlayudongbackend.user.dto.UserRequest;
 import com.gumlayudong.gumlayudongbackend.user.dto.UserResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
@@ -18,13 +14,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.*;
 
 @DisplayName("유저 컨트롤러 테스트")
-@WebFluxTest(controllers = UserController.class)
 class UserControllerMockTest extends ControllerMockTest {
-    @Autowired
-    private WebTestClient webTestClient;
-
-    @MockBean
-    private UserService userService;
 
     private UserRequest userRequest;
     private UserRequest userErrorRequest;

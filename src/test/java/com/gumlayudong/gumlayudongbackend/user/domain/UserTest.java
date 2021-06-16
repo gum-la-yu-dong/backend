@@ -13,7 +13,6 @@ import static org.assertj.core.api.Assertions.*;
 
 @DisplayName("User 도메인 테스트")
 class UserTest {
-
     private User user;
 
     @BeforeEach
@@ -36,7 +35,7 @@ class UserTest {
                 .doesNotThrowAnyException();
         assertThatCode(() -> new User(
                 "gump@naver.com", "123", "나는 잘생긴 권영훈",
-                "나는 잘생김", "/user/img", "www.hello.com"))
+                "", "/user/img", "www.hello.com"))
                 .doesNotThrowAnyException();
 
     }
@@ -86,7 +85,6 @@ class UserTest {
     @DisplayName("사용자 생성 - 자기소개 - 실패")
     @ParameterizedTest
     @NullSource
-    @ValueSource(strings = {" ", "  "})
     public void createIntroductionFailure(String text) {
         //given
         //when
@@ -100,7 +98,6 @@ class UserTest {
     @DisplayName("사용자 생성 - 프로필Url - 실패")
     @ParameterizedTest
     @NullSource
-    @ValueSource(strings = {" ", "  "})
     public void createProfileUrlFailure(String text) {
         //given
         //when
@@ -114,7 +111,6 @@ class UserTest {
     @DisplayName("사용자 생성 - 깃허브Url - 실패")
     @ParameterizedTest
     @NullSource
-    @ValueSource(strings = {" ", "  "})
     public void createGithubUrlFailure(String text) {
         //given
         //when
@@ -189,7 +185,6 @@ class UserTest {
     @DisplayName("사용자 수정 - 자기소개 - 실패 ")
     @ParameterizedTest
     @NullSource
-    @ValueSource(strings = {" ", "  "})
     public void modifyIntroductionFailure(String text) {
         //given
         //when
@@ -201,7 +196,6 @@ class UserTest {
     @DisplayName("사용자 수정 - 프로필url - 실패 ")
     @ParameterizedTest
     @NullSource
-    @ValueSource(strings = {" ", "  "})
     public void modifyProfileUrlFailure(String text) {
         //given
         //when
@@ -213,7 +207,6 @@ class UserTest {
     @DisplayName("사용자 수정 - 깃허브url - 실패 ")
     @ParameterizedTest
     @NullSource
-    @ValueSource(strings = {" ", "  "})
     public void modifyGithubUrlFailure(String text) {
         //given
         //when

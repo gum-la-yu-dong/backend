@@ -5,13 +5,9 @@ import com.gumlayudong.gumlayudongbackend.exception.InvalidInputException;
 import com.gumlayudong.gumlayudongbackend.exception.NotFoundException;
 import com.gumlayudong.gumlayudongbackend.post.dto.PostRequest;
 import com.gumlayudong.gumlayudongbackend.post.dto.PostResponse;
-import com.gumlayudong.gumlayudongbackend.post.service.PostService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
@@ -19,14 +15,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.*;
 
 @DisplayName("게시글 컨트롤러 테스트")
-@WebFluxTest(controllers = PostController.class)
 public class PostControllerMockTest extends ControllerMockTest {
-
-    @Autowired
-    private WebTestClient webTestClient;
-
-    @MockBean
-    private PostService postService;
 
     private PostRequest postRequest;
     private PostRequest errorPostRequest;

@@ -8,7 +8,6 @@ endif::[]
 :toclevels: 2
 :author: Gump, Ryan
 :email: https://github.com/gum-la-yu-dong/backend
-:htmlsyntax: utf8
 
 = 검라유동 Api Specification
 

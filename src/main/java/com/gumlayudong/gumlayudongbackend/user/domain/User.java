@@ -84,17 +84,14 @@ public class User extends BaseEntity {
 
     private void validateIntroduction(String introduction) {
         validateNull(introduction);
-        validateBlank(introduction);
     }
 
     private void validateProfileUrl(String profileUrl) {
         validateNull(profileUrl);
-        validateBlank(profileUrl);
     }
 
     private void validateGithubUrl(String githubUrl) {
         validateNull(githubUrl);
-        validateBlank(githubUrl);
     }
 
     private void validateNickname(String nickname) {
