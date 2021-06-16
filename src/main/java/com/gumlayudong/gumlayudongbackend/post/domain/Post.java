@@ -1,12 +1,17 @@
 package com.gumlayudong.gumlayudongbackend.post.domain;
 
+import com.gumlayudong.gumlayudongbackend.comment.domain.Comment;
 import com.gumlayudong.gumlayudongbackend.common.domain.BaseEntity;
 import com.gumlayudong.gumlayudongbackend.exception.InvalidInputException;
+import com.gumlayudong.gumlayudongbackend.like.domain.Like;
+import com.gumlayudong.gumlayudongbackend.tag.Tag;
 import com.gumlayudong.gumlayudongbackend.user.domain.User;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
@@ -18,6 +23,9 @@ public class Post extends BaseEntity {
     private String content;
     private String referenceUrl;
     private User user;
+    private List<Comment> comments = new ArrayList<>();
+    private List<Like> likes = new ArrayList<>();
+    private List<PostTag> postTags  = new ArrayList<>();
 
     public Post(String title, String content, String referenceUrl, User user) {
         this(null, title, content, referenceUrl, user);
