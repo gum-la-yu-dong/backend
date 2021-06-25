@@ -1,5 +1,6 @@
 package com.gumlayudong.gumlayudongbackend.user.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gumlayudong.gumlayudongbackend.ControllerMockTest;
 import com.gumlayudong.gumlayudongbackend.exception.InvalidInputException;
 import com.gumlayudong.gumlayudongbackend.user.dto.UserRequest;
@@ -8,10 +9,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.reactive.server.WebTestClient;
+import org.springframework.test.web.servlet.ResultActions;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.*;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @DisplayName("유저 컨트롤러 테스트")
 class UserControllerMockTest extends ControllerMockTest {
@@ -29,12 +35,12 @@ class UserControllerMockTest extends ControllerMockTest {
 
     @DisplayName("사용자 가입 - 성공")
     @Test
-    void signUp() {
+    void signUp() throws Exception {
         //given
         given(userService.save(any(UserRequest.class))).willReturn(userResponse);
 
         //when
-        WebTestClient.ResponseSpec saveResponse = 사용자_저장_요청(userRequest);
+        ResultActions saveResponse = 사용자_저장_요청(userRequest);
 
         //then
         사용자_생성됨(saveResponse);
@@ -42,12 +48,12 @@ class UserControllerMockTest extends ControllerMockTest {
 
     @DisplayName("사용자 가입 - 실패")
     @Test
-    void signUpFailure() {
+    void signUpFailure() throws Exception {
         //given
         willThrow(new InvalidInputException("잘못된 입력 예시")).given(userService).save(any(UserRequest.class));
 
         //when
-        WebTestClient.ResponseSpec saveResponse = 사용자_저장_요청(userErrorRequest);
+        ResultActions saveResponse = 사용자_저장_요청(userErrorRequest);
 
         //then
         사용자_생성_실패됨(saveResponse);
@@ -55,12 +61,12 @@ class UserControllerMockTest extends ControllerMockTest {
 
     @DisplayName("사용자 정보 조회 - 성공")
     @Test
-    void find() {
+    void find() throws Exception {
         //given
         given(userService.findUserByEmail(any(String.class))).willReturn(userResponse);
 
         //when
-        WebTestClient.ResponseSpec saveResponse = 사용자_조회_요청("xxx@gmail.com");
+        ResultActions saveResponse = 사용자_조회_요청("xxx@gmail.com");
 
         //then
         사용자_조회됨(saveResponse);
@@ -68,12 +74,12 @@ class UserControllerMockTest extends ControllerMockTest {
 
     @DisplayName("사용자 정보 조회 - 실패")
     @Test
-    void findFailure() {
+    void findFailure() throws Exception {
         //given
         willThrow(new InvalidInputException("잘못된 입력 예시")).given(userService).findUserByEmail(any(String.class));
 
         //when
-        WebTestClient.ResponseSpec saveResponse = 사용자_조회_요청("@gmail.com");
+        ResultActions saveResponse = 사용자_조회_요청("@gmail.com");
 
         //then
         사용자_조회_요청_실패(saveResponse);
@@ -81,12 +87,12 @@ class UserControllerMockTest extends ControllerMockTest {
 
     @DisplayName("사용자 업데이트 - 성공")
     @Test
-    void userUpdate() {
+    void userUpdate() throws Exception {
         //given
         willDoNothing().given(userService).update(any(UserRequest.class));
 
         //when
-        WebTestClient.ResponseSpec updateResponse = 사용자_업데이트_요청(userRequest);
+        ResultActions updateResponse = 사용자_업데이트_요청(userRequest);
 
         //then
         사용자_업데이트_성공함(updateResponse);
@@ -94,12 +100,12 @@ class UserControllerMockTest extends ControllerMockTest {
 
     @DisplayName("사용자 업데이트 - 실패")
     @Test
-    void userUpdateFailure() {
+    void userUpdateFailure() throws Exception {
         //given
         willThrow(new InvalidInputException("잘못된 입력 예시")).given(userService).update(any(UserRequest.class));
 
         //when
-        WebTestClient.ResponseSpec updateResponse = 사용자_업데이트_요청(userErrorRequest);
+        ResultActions updateResponse = 사용자_업데이트_요청(userErrorRequest);
 
         //then
         사용자_업데이트_실패함(updateResponse);
@@ -107,12 +113,12 @@ class UserControllerMockTest extends ControllerMockTest {
 
     @DisplayName("사용자 삭제 - 성공")
     @Test
-    void delete() {
+    void userDelete() throws Exception {
         //given
         willDoNothing().given(userService).deleteByEmail(any(String.class));
 
         //when
-        WebTestClient.ResponseSpec saveResponse = 사용자_삭제_요청("xxx@gmail.com");
+        ResultActions saveResponse = 사용자_삭제_요청("xxx@gmail.com");
 
         //then
         사용자_삭제됨(saveResponse);
@@ -120,97 +126,96 @@ class UserControllerMockTest extends ControllerMockTest {
 
     @DisplayName("사용자 삭제 - 실패")
     @Test
-    void deleteFailure() {
+    void deleteFailure() throws Exception {
         //given
         willThrow(new InvalidInputException("잘못된 입력 예시")).given(userService).deleteByEmail(any(String.class));
 
         //when
-        WebTestClient.ResponseSpec saveResponse = 사용자_삭제_요청("@gmail.com");
+        ResultActions saveResponse = 사용자_삭제_요청("@gmail.com");
 
         //then
         사용자_삭제_실패함(saveResponse);
     }
 
 
-    private WebTestClient.ResponseSpec 사용자_업데이트_요청(UserRequest userRequest) {
-        return webTestClient.put().uri("/api/users")
+    private ResultActions 사용자_업데이트_요청(UserRequest userRequest) throws Exception {
+        return mockMvc.perform(put("/api/users")
                 .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(userRequest)
-                .exchange();
+                .content(toJson(userRequest)));
     }
 
 
-    private WebTestClient.ResponseSpec 사용자_저장_요청(UserRequest saveRequest) {
-        return webTestClient.post().uri("/api/users/signup")
+    private ResultActions 사용자_저장_요청(UserRequest saveRequest) throws Exception {
+        return mockMvc.perform(post("/api/users/signup")
                 .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(saveRequest)
-                .exchange();
+                .content(toJson(saveRequest))
+        );
     }
 
-    private WebTestClient.ResponseSpec 사용자_조회_요청(String email) {
-        return webTestClient.get()
-                .uri(uriBuilder ->
-                        uriBuilder.path("/api/users")
-                                .queryParam("email", email)
-                                .build())
-                .exchange();
+    private String toJson(Object object) {
+        try {
+            return new ObjectMapper().writeValueAsString(object);
+        } catch (Exception e) {
+            throw new IllegalStateException("직렬화 오류");
+        }
     }
 
-    private WebTestClient.ResponseSpec 사용자_삭제_요청(String email) {
-        return webTestClient.delete()
-                .uri(uriBuilder -> uriBuilder.path("/api/users")
-                        .queryParam("email", email)
-                        .build())
-                .exchange();
+    private ResultActions 사용자_조회_요청(String email) throws Exception {
+        return mockMvc.perform(get("/api/users")
+                .queryParam("email", email));
     }
 
-    private void 사용자_생성됨(WebTestClient.ResponseSpec saveResponse) {
-        saveResponse.expectStatus()
-                .isCreated()
-                .expectHeader().exists("Location")
-                .expectBody().consumeWith(toDocument("user-create"));
+    private ResultActions 사용자_삭제_요청(String email) throws Exception {
+        return mockMvc.perform(delete("/api/users")
+                .queryParam("email", email));
     }
 
-    private void 사용자_생성_실패됨(WebTestClient.ResponseSpec saveResponse) {
-        saveResponse.expectStatus()
-                .isBadRequest()
-                .expectBody().consumeWith(toDocument("user-create-fail"));
+    private void 사용자_생성됨(ResultActions saveResponse) throws Exception {
+        saveResponse.andExpect(status().isCreated())
+                .andExpect(header().string("Location", "/api/users/1"))
+                .andDo(print())
+                .andDo(toDocument("user-create"));
     }
 
-    private void 사용자_업데이트_성공함(WebTestClient.ResponseSpec updateResponse) {
-        updateResponse.expectStatus()
-                .isNoContent()
-                .expectBody().consumeWith(toDocument("user-update"));
+    private void 사용자_생성_실패됨(ResultActions saveResponse) throws Exception {
+        saveResponse.andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(toDocument("user-create-fail"));
     }
 
-    private void 사용자_조회됨(WebTestClient.ResponseSpec saveResponse) {
-        saveResponse.expectStatus()
-                .isOk()
-                .expectBody().consumeWith(toDocument("user-detail"));
+    private void 사용자_업데이트_성공함(ResultActions updateResponse) throws Exception {
+        updateResponse.andExpect(status().isNoContent())
+                .andDo(print())
+                .andDo(toDocument("user-update"));
     }
 
-    private void 사용자_조회_요청_실패(WebTestClient.ResponseSpec saveResponse) {
-        saveResponse.expectStatus()
-                .isBadRequest()
-                .expectBody()
-                .consumeWith(toDocument("user-detail-fail"));
+    private void 사용자_조회됨(ResultActions saveResponse) throws Exception {
+        saveResponse.andExpect(status().isOk())
+                .andDo(print())
+                .andDo(toDocument("user-detail"));
     }
 
-    private void 사용자_업데이트_실패함(WebTestClient.ResponseSpec updateResponse) {
-        updateResponse.expectStatus()
-                .isBadRequest()
-                .expectBody().consumeWith(toDocument("user-update-fail"));
+    private void 사용자_조회_요청_실패(ResultActions saveResponse) throws Exception {
+        saveResponse.andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(toDocument("user-detail-fail"));
     }
 
-    private void 사용자_삭제됨(WebTestClient.ResponseSpec saveResponse) {
-        saveResponse.expectStatus()
-                .isNoContent()
-                .expectBody().consumeWith(toDocument("user-delete"));
+    private void 사용자_업데이트_실패함(ResultActions updateResponse) throws Exception {
+        updateResponse.andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(toDocument("user-update-fail"));
     }
 
-    private void 사용자_삭제_실패함(WebTestClient.ResponseSpec saveResponse) {
-        saveResponse.expectStatus()
-                .isBadRequest()
-                .expectBody().consumeWith(toDocument("user-delete-fail"));
+    private void 사용자_삭제됨(ResultActions saveResponse) throws Exception {
+        saveResponse.andExpect(status().isNoContent())
+                .andDo(print())
+                .andDo(toDocument("user-delete"));
+    }
+
+    private void 사용자_삭제_실패함(ResultActions saveResponse) throws Exception {
+        saveResponse.andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(toDocument("user-delete-fail"));
     }
 }

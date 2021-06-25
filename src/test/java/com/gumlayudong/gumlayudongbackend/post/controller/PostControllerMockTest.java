@@ -1,5 +1,6 @@
 package com.gumlayudong.gumlayudongbackend.post.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gumlayudong.gumlayudongbackend.ControllerMockTest;
 import com.gumlayudong.gumlayudongbackend.exception.InvalidInputException;
 import com.gumlayudong.gumlayudongbackend.exception.NotFoundException;
@@ -9,14 +10,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.reactive.server.WebTestClient;
+import org.springframework.test.web.servlet.ResultActions;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.*;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @DisplayName("게시글 컨트롤러 테스트")
 public class PostControllerMockTest extends ControllerMockTest {
-
     private PostRequest postRequest;
     private PostRequest errorPostRequest;
 
@@ -28,25 +33,25 @@ public class PostControllerMockTest extends ControllerMockTest {
 
     @DisplayName("게시글 저장 - 성공")
     @Test
-    void savePostTest() {
+    void savePostTest() throws Exception {
         //given
         given(postService.save(any(PostRequest.class))).willReturn(new PostResponse(1L, "검프의 손맛", "소금 실패", "너무짜.com"));
 
         //when
-        WebTestClient.ResponseSpec saveResponse = 게시글_저장_요청(postRequest);
+        ResultActions saveResponse = 게시글_저장_요청(postRequest);
 
         //then
-        게시글_생성됨(saveResponse);
+        게시글_생성됨(saveResponse, 1L);
     }
 
     @DisplayName("게시글 저장 - 실패")
     @Test
-    void savePostFailure() {
+    void savePostFailure() throws Exception {
         //given
         willThrow(new InvalidInputException("잘못된 입력 예시")).given(postService).save(any(PostRequest.class));
 
         //when
-        WebTestClient.ResponseSpec saveResponse = 게시글_저장_요청(errorPostRequest);
+        ResultActions saveResponse = 게시글_저장_요청(errorPostRequest);
 
         //then
         게시글_생성_실패됨(saveResponse);
@@ -54,12 +59,12 @@ public class PostControllerMockTest extends ControllerMockTest {
 
     @DisplayName("게시글 업데이트 - 성공")
     @Test
-    void updatePost() {
+    void updatePost() throws Exception {
         //given
         willDoNothing().given(postService).update(any(PostRequest.class));
 
         //when
-        WebTestClient.ResponseSpec updateResponse = 게시글_수정_요청(postRequest);
+        ResultActions updateResponse = 게시글_수정_요청(postRequest);
 
         //then
         게시글_수정됨(updateResponse);
@@ -67,12 +72,12 @@ public class PostControllerMockTest extends ControllerMockTest {
 
     @DisplayName("게시글 업데이트 - 실패")
     @Test
-    void updatePostFailure() {
+    void updatePostFailure() throws Exception {
         //given
         willThrow(new InvalidInputException("잘못된 입력 예시")).given(postService).update(any(PostRequest.class));
 
         //when
-        WebTestClient.ResponseSpec updateResponse = 게시글_수정_요청(errorPostRequest);
+        ResultActions updateResponse = 게시글_수정_요청(errorPostRequest);
 
         //then
         게시글_수정_실패됨(updateResponse);
@@ -80,23 +85,23 @@ public class PostControllerMockTest extends ControllerMockTest {
 
     @DisplayName("게시글 조회 - 성공")
     @Test
-    void findPost() {
+    void findPost() throws Exception {
         //given
         given(postService.findById(any(Long.class))).willReturn(new PostResponse(1L, "검프의 손맛", "소금 실패", "너무짜" +
                 ".com"));
 
-        WebTestClient.ResponseSpec findResponse = 게시글_조회_요청();
+        ResultActions findResponse = 게시글_조회_요청(1L);
         게시글_조회됨(findResponse);
     }
 
     @DisplayName("게시글 조회 - 실패")
     @Test
-    void findPostFailure() {
+    void findPostFailure() throws Exception {
         //given
         willThrow(new NotFoundException("잘못된 입력 예시")).given(postService).findById(any(Long.class));
 
         //when
-        WebTestClient.ResponseSpec findResponse = 게시글_조회_요청();
+        ResultActions findResponse = 게시글_조회_요청(1L);
 
         //then
         게시글_조회_실패됨(findResponse);
@@ -104,116 +109,100 @@ public class PostControllerMockTest extends ControllerMockTest {
 
     @DisplayName("게시글 삭제 - 성공")
     @Test
-    void deletePost() {
+    void deletePost() throws Exception {
         //given
         willDoNothing().given(postService).delete(any(Long.class));
 
-        WebTestClient.ResponseSpec deleteResponse = 게시글_삭제_요청();
+        ResultActions deleteResponse = 게시글_삭제_요청(1L);
         게시글_삭제됨(deleteResponse);
     }
 
     @DisplayName("게시글 삭제 - 실패")
     @Test
-    void deletePostFailure() {
+    void deletePostFailure() throws Exception {
         //given
         willThrow(new NotFoundException("잘못된 입력 예시")).given(postService).delete(any(Long.class));
 
         //when
-        WebTestClient.ResponseSpec deleteResponse = 게시글_삭제_요청();
+        ResultActions deleteResponse = 게시글_삭제_요청(1L);
 
         //then
         게시글_삭제_실패됨(deleteResponse);
     }
 
-    private WebTestClient.BodyContentSpec 게시글_삭제_실패됨(WebTestClient.ResponseSpec deleteResponse) {
+    private ResultActions 게시글_삭제_실패됨(ResultActions deleteResponse) throws Exception {
         return deleteResponse
-                .expectStatus()
-                .isBadRequest()
-                .expectBody()
-                .consumeWith(toDocument("post-delete-fail"));
+                .andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(document("post-delete-fail"));
     }
 
-    private WebTestClient.BodyContentSpec 게시글_삭제됨(WebTestClient.ResponseSpec deleteResponse) {
+    private ResultActions 게시글_삭제됨(ResultActions deleteResponse) throws Exception {
         return deleteResponse
-                .expectStatus()
-                .isNoContent()
-                .expectBody()
-                .consumeWith(toDocument("post-delete"));
+                .andExpect(status().isNoContent())
+                .andDo(print())
+                .andDo(document("post-delete"));
     }
 
-    private WebTestClient.BodyContentSpec 게시글_조회_실패됨(WebTestClient.ResponseSpec findResponse) {
+    private ResultActions 게시글_조회_실패됨(ResultActions findResponse) throws Exception {
         return findResponse
-                .expectStatus()
-                .isBadRequest()
-                .expectBody()
-                .consumeWith(toDocument("post-find-fail"));
+                .andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(document("post-find-fail"));
     }
 
-    private WebTestClient.BodyContentSpec 게시글_조회됨(WebTestClient.ResponseSpec findResponse) {
+    private ResultActions 게시글_조회됨(ResultActions findResponse) throws Exception {
         return findResponse
-                .expectStatus()
-                .isOk()
-                .expectBody()
-                .consumeWith(toDocument("post-find"));
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andDo(document("post-find"));
     }
 
-    private WebTestClient.ResponseSpec 게시글_조회_요청() {
-        return webTestClient.get()
-                .uri(uriBuilder ->
-                        uriBuilder
-                                .path("/api/posts/{id}")
-                                .build(1))
-                .exchange();
+    private ResultActions 게시글_조회_요청(Long id) throws Exception {
+        return mockMvc.perform(get("/api/posts/" + id));
     }
 
-    private WebTestClient.ResponseSpec 게시글_삭제_요청() {
-        return webTestClient.delete()
-                .uri(uriBuilder ->
-                        uriBuilder
-                                .path("/api/posts/{id}")
-                                .build(1))
-                .exchange();
+    private ResultActions 게시글_삭제_요청(Long id) throws Exception {
+        return mockMvc.perform(delete("/api/posts/" + id));
     }
 
-    private WebTestClient.BodyContentSpec 게시글_수정됨(WebTestClient.ResponseSpec updateRequest) {
+    private ResultActions 게시글_수정됨(ResultActions updateRequest) throws Exception {
         return updateRequest
-                .expectStatus()
-                .isNoContent()
-                .expectBody().consumeWith(toDocument("post-update"));
+                .andExpect(status().isNoContent())
+                .andDo(print())
+                .andDo(document("post-update"));
     }
 
-    private WebTestClient.BodyContentSpec 게시글_수정_실패됨(WebTestClient.ResponseSpec updateRequest) {
+    private ResultActions 게시글_수정_실패됨(ResultActions updateRequest) throws Exception {
         return updateRequest
-                .expectStatus()
-                .isBadRequest()
-                .expectBody().consumeWith(toDocument("post-update-fail"));
+                .andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(document("post-update-fail"));
     }
 
-    private WebTestClient.ResponseSpec 게시글_수정_요청(PostRequest updateRequest) {
-        return webTestClient.put().uri("/api/posts")
+    private ResultActions 게시글_수정_요청(PostRequest updateRequest) throws Exception {
+        return mockMvc.perform(put("/api/posts")
                 .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(updateRequest)
-                .exchange();
+                .content(new ObjectMapper().writeValueAsString(updateRequest)));
     }
 
 
-    private WebTestClient.ResponseSpec 게시글_저장_요청(PostRequest saveRequest) {
-        return webTestClient.post().uri("/api/posts")
+    private ResultActions 게시글_저장_요청(PostRequest saveRequest) throws Exception {
+        return mockMvc.perform(post("/api/posts")
                 .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(saveRequest)
-                .exchange();
+                .content(new ObjectMapper().writeValueAsString(saveRequest)));
     }
 
-    private void 게시글_생성됨(WebTestClient.ResponseSpec saveResponse) {
-        saveResponse.expectStatus()
-                .isCreated()
-                .expectHeader().exists("Location")
-                .expectBody().consumeWith(toDocument("post-create"));
+    private void 게시글_생성됨(ResultActions saveResponse, Long id) throws Exception {
+        saveResponse.andExpect(status().isCreated())
+                .andExpect(header().string("Location", "/api/posts/" + id))
+                .andDo(print())
+                .andDo(document("post-create"));
     }
 
-    private void 게시글_생성_실패됨(WebTestClient.ResponseSpec saveResponse) {
-        saveResponse.expectStatus()
-                .isBadRequest()
-                .expectBody().consumeWith(toDocument("post-create-fail"));
+    private void 게시글_생성_실패됨(ResultActions saveResponse) throws Exception {
+        saveResponse.andExpect(status().isBadRequest())
+                .andDo(print())
+                .andDo(document("post-create-fail"));
     }
 }
