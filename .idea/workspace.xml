@@ -5,17 +5,189 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="738ac554-5571-4e49-9d8e-5c56a2cd918f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gumrya-admin/src/main/java/gumrya/empty.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gumrya-admin/src/test/java/gumrya/empty.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gumrya-common/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gumrya-common/src/test/java/gumrya/empty.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/empty.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gumrya-core/src/test/java/gumrya/empty.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/comment/domain/model/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/config/JpaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/config/entity/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/like/domain/model/Like.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/post/domain/model/Post.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/post/domain/model/PostTag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/tag/domain/model/Tag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/user/domain/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/jarAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/configuration-cache/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/2020-gumrya.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/2020-gumrya.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-common/build/classes/java/main/gumrya/exception/CommonException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-common/build/classes/java/main/gumrya/exception/DuplicateException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-common/build/classes/java/main/gumrya/exception/ExceptionResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-common/build/classes/java/main/gumrya/exception/InvalidInputException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-common/build/classes/java/main/gumrya/exception/NotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-common/build/libs/gumrya-common.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-common/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-common/build/tmp/jar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gumrya-core/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/empty.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-core/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gumrya-core/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/gumrya-web/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/main/gumrya/GumryaWebApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/main/gumrya/api/PostApiController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/main/gumrya/api/UserApiController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/main/gumrya/dto/PostRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/main/gumrya/dto/PostResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/main/gumrya/dto/UserRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/main/gumrya/dto/UserResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/main/gumrya/service/PostService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/main/gumrya/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/test/gumrya/GumryaWebApplicationTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/test/gumrya/api/ApiDocument.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/test/gumrya/api/PostApiControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/classes/java/test/gumrya/api/UserApiControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create-fail/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create-fail/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create-fail/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create-fail/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create-fail/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create-fail/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-create/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete-fail/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete-fail/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete-fail/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete-fail/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete-fail/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete-fail/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-delete/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find-fail/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find-fail/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find-fail/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find-fail/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find-fail/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find-fail/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-find/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update-fail/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update-fail/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update-fail/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update-fail/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update-fail/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update-fail/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/post-update/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create-fail/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create-fail/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create-fail/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create-fail/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create-fail/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create-fail/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-create/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete-fail/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete-fail/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete-fail/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete-fail/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete-fail/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete-fail/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-delete/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail-fail/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail-fail/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail-fail/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail-fail/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail-fail/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail-fail/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-detail/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update-fail/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update-fail/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update-fail/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update-fail/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update-fail/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update-fail/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update/curl-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update/http-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update/http-response.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update/httpie-request.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update/request-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/generated-snippets/user-update/response-body.adoc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/reports/tests/test/classes/gumrya.api.PostApiControllerTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/reports/tests/test/classes/gumrya.api.UserApiControllerTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/reports/tests/test/css/base-style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/reports/tests/test/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/reports/tests/test/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/reports/tests/test/js/report.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/reports/tests/test/packages/gumrya.api.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/test-results/test/TEST-gumrya.api.PostApiControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/test-results/test/TEST-gumrya.api.UserApiControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/test-results/test/binary/output.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gumrya-web/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -41,19 +213,7 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="2021-gumrya" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="2021-gumrya" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="2021-gumrya" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build setup" type="c8890929:TasksNode$1" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -65,13 +225,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test-autoconfigure/2.5.1/5346ddee2847a11ec25a031f3afa080bee6fa795/spring-boot-test-autoconfigure-2.5.1-sources.jar!/org/springframework/boot/test/autoconfigure/web/reactive/WebFluxTest.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-tx/5.3.8/d984dac6e6ece95f48488fc888468597c329034b/spring-tx-5.3.8-sources.jar!/org/springframework/transaction/annotation/Transactional.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-test-autoconfigure/2.5.1/5346ddee2847a11ec25a031f3afa080bee6fa795/spring-boot-test-autoconfigure-2.5.1-sources.jar!/org/springframework/boot/test/autoconfigure/filter/TypeExcludeFilters.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1uTjv0m7hQzxDRBdtZ8Sc6Synzl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -81,6 +249,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="h2" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -96,7 +265,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.14941025" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -122,7 +291,7 @@
       <recent name="gumrya.api" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in '2021-gumrya.gumrya-web.test'">
+  <component name="RunManager" selected="Spring Boot.GumryaWebApplication">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -218,53 +387,6 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="2021-gumrya" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="2021-gumrya" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="filePath" />
-      <option name="vmParameters" />
-      <option name="alternativeJrePath" />
-      <option name="programParameters" />
-      <option name="passParentEnvs" value="true" />
-      <option name="workingDirectory" />
-      <option name="isAlternativeJrePathEnabled" value="false" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="WORKING_DIRECTORY" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="GumryaWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="2021-gumrya.gumrya-web.main" />
       <extension name="coverage">
@@ -280,10 +402,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in '2021-gumrya.gumrya-web.test'" />
-        <item itemvalue="Gradle.Tests in 'gumrya.api'" />
-        <item itemvalue="Gradle.UserApiControllerTest" />
         <item itemvalue="Spring Boot.GumryaWebApplication" />
+        <item itemvalue="Gradle.Tests in '2021-gumrya.gumrya-web.test'" />
+        <item itemvalue="Gradle.UserApiControllerTest" />
+        <item itemvalue="Gradle.Tests in 'gumrya.api'" />
         <item itemvalue="Gradle.2021-gumrya [build]" />
       </list>
     </recent_temporary>
@@ -299,6 +421,8 @@
       <workItem from="1624696702481" duration="2178000" />
       <workItem from="1624702113364" duration="894000" />
       <workItem from="1624703069060" duration="4825000" />
+      <workItem from="1624711611525" duration="431000" />
+      <workItem from="1624712091028" duration="1698000" />
     </task>
     <servers />
   </component>
@@ -315,5 +439,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
