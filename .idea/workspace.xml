@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="738ac554-5571-4e49-9d8e-5c56a2cd918f" name="Default Changelist" comment="" />
+    <list default="true" id="738ac554-5571-4e49-9d8e-5c56a2cd918f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/gumrya-admin/src/main/java/gumrya/empty.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-admin/src/test/java/gumrya/empty.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-common/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-common/src/test/java/gumrya/empty.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/empty.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gumrya-core/src/test/java/gumrya/empty.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +74,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1uTjv0m7hQzxDRBdtZ8Sc6Synzl" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -82,7 +91,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gumrya-web/src/main/java/gumrya/dto" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gumrya-core/src/test/java" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -92,12 +101,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/gumrya-web/src/main/java/gumrya/dto" />
-      <recent name="$PROJECT_DIR$/gumrya-web/src/docs" />
-      <recent name="$PROJECT_DIR$/gumrya-common/src/main/java/gumrya/exception" />
+      <recent name="$PROJECT_DIR$/gumrya-core/src/test/java" />
+      <recent name="$PROJECT_DIR$/gumrya-core/src/main/java" />
+      <recent name="$PROJECT_DIR$/gumrya-common/src/test/java" />
+      <recent name="$PROJECT_DIR$/gumrya-admin/src/test/java" />
+      <recent name="$PROJECT_DIR$/gumrya-admin/src/main/java" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gumrya-admin/src/main/java/gumrya" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="gumrya.api" />
@@ -284,11 +298,22 @@
       <updated>1624696699764</updated>
       <workItem from="1624696702481" duration="2178000" />
       <workItem from="1624702113364" duration="894000" />
-      <workItem from="1624703069060" duration="4475000" />
+      <workItem from="1624703069060" duration="4825000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
