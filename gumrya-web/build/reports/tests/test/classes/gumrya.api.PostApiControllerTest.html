@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.280s</div>
+<div class="counter">0.275s</div>
 <p>duration</p>
 </div>
 </td>
@@ -81,49 +81,49 @@
 <tr>
 <td class="success">게시글 삭제 - 성공</td>
 <td class="success">deletePost()</td>
-<td class="success">0.015s</td>
+<td class="success">0.030s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">게시글 삭제 - 실패</td>
 <td class="success">deletePostFailure()</td>
-<td class="success">0.013s</td>
+<td class="success">0.023s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">게시글 조회 - 성공</td>
 <td class="success">findPost()</td>
-<td class="success">0.022s</td>
+<td class="success">0.032s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">게시글 조회 - 실패</td>
 <td class="success">findPostFailure()</td>
-<td class="success">0.011s</td>
+<td class="success">0.033s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">게시글 저장 - 실패</td>
 <td class="success">savePostFailure()</td>
-<td class="success">0.013s</td>
+<td class="success">0.045s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">게시글 저장 - 성공</td>
 <td class="success">savePostTest()</td>
-<td class="success">0.018s</td>
+<td class="success">0.049s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">게시글 업데이트 - 성공</td>
 <td class="success">updatePost()</td>
-<td class="success">0.013s</td>
+<td class="success">0.024s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">게시글 업데이트 - 실패</td>
 <td class="success">updatePostFailure()</td>
-<td class="success">0.175s</td>
+<td class="success">0.039s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -131,24 +131,12 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>20:36:11.896 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-20:36:11.906 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-20:36:11.930 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [gumrya.api.PostApiControllerTest] from class [org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper]
-20:36:11.940 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [gumrya.api.PostApiControllerTest], using SpringBootContextLoader
-20:36:11.943 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [gumrya.api.PostApiControllerTest]: class path resource [gumrya/api/PostApiControllerTest-context.xml] does not exist
-20:36:11.943 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [gumrya.api.PostApiControllerTest]: class path resource [gumrya/api/PostApiControllerTestContext.groovy] does not exist
-20:36:11.943 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [gumrya.api.PostApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-20:36:11.944 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [gumrya.api.PostApiControllerTest]: PostApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-20:36:11.998 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [gumrya.api.PostApiControllerTest]
-20:36:12.066 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/gump/Desktop/study/우아한-테크-코스/레벨3/2021-gumrya/gumrya-web/build/classes/java/main/gumrya/GumryaWebApplication.class]
-20:36:12.066 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration gumrya.GumryaWebApplication for test class gumrya.api.PostApiControllerTest
-20:36:12.069 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - @TestExecutionListeners is not present for class [gumrya.api.PostApiControllerTest]: using defaults.
-20:36:12.070 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-20:36:12.079 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
-20:36:12.080 [Test worker] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
-20:36:12.080 [Test worker] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7b3a0eff, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@260ae7c4, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3e37f3a2, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7758abe7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5c3e0e05, org.springframework.test.context.event.EventPublishingTestExecutionListener@2dfbe681, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@2cd0aa7f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1ee52b91, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3287506e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@40ba6751, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@6910be6b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5e1ea97b]
-20:36:12.085 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@ce35f74 testClass = PostApiControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@17157817 testClass = PostApiControllerTest, locations = '{}', classes = '{class gumrya.GumryaWebApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@1e2efc8, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@d0728ddc, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@3fcbe784, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@74a23732, [ImportsContextCustomizer@1528a363 key = [@org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureWebMvc(), @org.springframework.context.annotation.Import(value={org.springframework.boot.autoconfigure.ImportAutoConfigurationImportSelector.class}), @org.apiguardian.api.API(consumers={&quot;*&quot;}, since=&quot;5.0&quot;, status=STABLE), @org.springframework.context.annotation.Import(value={org.springframework.boot.test.autoconfigure.restdocs.RestDocumentationContextProviderRegistrar.class}), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper.class), @org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest(useDefaultFilters=true, excludeFilters={}, excludeAutoConfiguration={}, controllers={gumrya.api.PostApiController.class}, value={}, includeFilters={}, properties={}), @org.springframework.boot.autoconfigure.ImportAutoConfiguration(value={}, exclude={}, classes={}), @org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs(uriScheme=&quot;http&quot;, outputDir=&quot;&quot;, uriPort=8080, value=&quot;&quot;, uriHost=&quot;localhost&quot;), @org.springframework.boot.test.autoconfigure.filter.TypeExcludeFilters(value={org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTypeExcludeFilter.class}), @org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc(webDriverEnabled=true, print=DEFAULT, webClientEnabled=true, printOnlyOnFailure=true, addFilters=true), @org.springframework.boot.test.autoconfigure.properties.PropertyMapping(value=&quot;spring.test.mockmvc&quot;, skip=NO), @org.springframework.boot.test.autoconfigure.properties.PropertyMapping(value=&quot;spring.test.restdocs&quot;, skip=NO), @org.springframework.boot.test.autoconfigure.OverrideAutoConfiguration(enabled=false), @org.springframework.boot.test.autoconfigure.core.AutoConfigureCache(cacheProvider=NONE), @org.junit.jupiter.api.extension.ExtendWith(value={org.springframework.test.context.junit.jupiter.SpringExtension.class})]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@3c7bc2b2, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@5455d249, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@94588fb8, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
-20:36:12.117 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}
+<pre>2021-06-26 21:58:16.846  INFO 79180 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [gumrya.api.PostApiControllerTest], using SpringBootContextLoader
+2021-06-26 21:58:16.847  INFO 79180 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [gumrya.api.PostApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-06-26 21:58:16.847  INFO 79180 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [gumrya.api.PostApiControllerTest]: PostApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-06-26 21:58:16.853  INFO 79180 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration gumrya.GumryaWebApplication for test class gumrya.api.PostApiControllerTest
+2021-06-26 21:58:16.854  INFO 79180 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-06-26 21:58:16.856  INFO 79180 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@9dd535b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5832952c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2296f07e, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@72c6fc5c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@11623ed4, org.springframework.test.context.event.EventPublishingTestExecutionListener@5db54221, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@48354ce9, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@d547daf, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@d40764f, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7a93898c, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@1823c033, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@36347f9d]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -158,13 +146,13 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::       (v2.3.12.RELEASE)
 
-2021-06-26 20:36:12.417  INFO 64904 --- [    Test worker] gumrya.api.PostApiControllerTest         : Starting PostApiControllerTest on TaeJeongui-MacBookPro.local with PID 64904 (started by gump in /Users/gump/Desktop/study/우아한-테크-코스/레벨3/2021-gumrya/gumrya-web)
-2021-06-26 20:36:12.420  INFO 64904 --- [    Test worker] gumrya.api.PostApiControllerTest         : No active profile set, falling back to default profiles: default
-2021-06-26 20:36:13.577  INFO 64904 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2021-06-26 20:36:13.817  INFO 64904 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2021-06-26 20:36:13.817  INFO 64904 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2021-06-26 20:36:13.827  INFO 64904 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 10 ms
-2021-06-26 20:36:13.851  INFO 64904 --- [    Test worker] gumrya.api.PostApiControllerTest         : Started PostApiControllerTest in 1.725 seconds (JVM running for 2.589)
+2021-06-26 21:58:16.913  INFO 79180 --- [    Test worker] gumrya.api.PostApiControllerTest         : Starting PostApiControllerTest on Younghoonui-MacBook-Pro.local with PID 79180 (started by hoony in /Users/hoony/Desktop/woowacourse/gumlayudong-backend/gumrya-web)
+2021-06-26 21:58:16.917  INFO 79180 --- [    Test worker] gumrya.api.PostApiControllerTest         : No active profile set, falling back to default profiles: default
+2021-06-26 21:58:17.377  INFO 79180 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-26 21:58:17.520  INFO 79180 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-06-26 21:58:17.520  INFO 79180 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-06-26 21:58:17.533  INFO 79180 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 13 ms
+2021-06-26 21:58:17.551  INFO 79180 --- [    Test worker] gumrya.api.PostApiControllerTest         : Started PostApiControllerTest in 0.688 seconds (JVM running for 4.455)
 
 MockHttpServletRequest:
       HTTP Method = PUT
@@ -472,7 +460,7 @@ MockHttpServletResponse:
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.8</a> at 2021. 6. 26. 오후 8:36:14</p>
+<a href="http://www.gradle.org">Gradle 6.8</a> at Jun 26, 2021, 9:58:18 PM</p>
 </div>
 </div>
 </body>
