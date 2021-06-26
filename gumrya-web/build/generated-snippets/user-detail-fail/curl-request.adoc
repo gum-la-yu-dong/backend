@@ -1,0 +1,4 @@
+[source,bash]
+----
+$ curl 'http://localhost/api/users?email=@gmail.com' -i -X GET
+----

@@ -1,0 +1,5 @@
+[source,bash]
+----
+$ echo '{"id":1,"title":"검프의 손맛","content":"소금 실패","referenceUrl":"너무짜.com"}' | http PUT 'http://localhost:8080/api/posts' \
+    'Content-Type:application/json;charset=UTF-8'
+----

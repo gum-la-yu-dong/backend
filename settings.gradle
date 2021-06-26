@@ -1,1 +1,6 @@
-rootProject.name = 'gumlayudong-backend'
+rootProject.name = '2021-gumrya'
+include 'gumrya-web'
+include 'gumrya-core'
+include 'gumrya-common'
+include 'gumrya-admin'
+

@@ -1,0 +1,12 @@
+[source,bash]
+----
+$ echo '{
+  "email" : "gump@naver.com",
+  "password" : "나는 잘생긴 권영훈",
+  "nickname" : "123",
+  "introduction" : "나는 잘생김",
+  "profileUrl" : "/user/img",
+  "githubUrl" : "www.hello.com"
+}' | http POST 'http://localhost/api/users/signup' \
+    'Content-Type:application/json;charset=UTF-8'
+----

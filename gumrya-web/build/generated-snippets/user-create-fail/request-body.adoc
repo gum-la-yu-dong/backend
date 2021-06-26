@@ -1,0 +1,11 @@
+[source,options="nowrap"]
+----
+{
+  "email" : null,
+  "password" : null,
+  "nickname" : null,
+  "introduction" : null,
+  "profileUrl" : null,
+  "githubUrl" : null
+}
+----

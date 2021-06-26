@@ -1,0 +1,10 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 43
+
+{
+  "message" : "잘못된 입력 예시"
+}
+----
