@@ -1,0 +1,8 @@
+gumrya/GumryaWebApplicationTest.java
+ gumrya.GumryaWebApplicationTest
+gumrya/api/UserApiControllerTest.java
+ gumrya.api.UserApiControllerTest
+gumrya/api/ApiDocument.java
+ gumrya.api.ApiDocument
+gumrya/api/PostApiControllerTest.java
+ gumrya.api.PostApiControllerTest

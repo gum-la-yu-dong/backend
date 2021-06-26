@@ -1,0 +1,13 @@
+[source,bash]
+----
+$ curl 'http://localhost/api/users' -i -X PUT \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    -d '{
+  "email" : null,
+  "password" : null,
+  "nickname" : null,
+  "introduction" : null,
+  "profileUrl" : null,
+  "githubUrl" : null
+}'
+----

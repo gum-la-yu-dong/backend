@@ -1,0 +1,10 @@
+[source,options="nowrap"]
+----
+{
+  "id" : 1,
+  "nickname" : "나는 잘생긴 권영훈",
+  "introduction" : "나는 잘생김",
+  "profileUrl" : "/user/img",
+  "githubUrl" : "www.hello.com"
+}
+----

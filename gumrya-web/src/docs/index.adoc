@@ -1,0 +1,164 @@
+ifndef::snippets[]
+:snippets: ../../../build/generated-snippets
+endif::[]
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: right
+:toclevels: 2
+:author: Gump, Ryan
+:email: https://github.com/gum-la-yu-dong/backend
+
+= 검라유동 Api Specification
+
+=== Common Responses
+==== Common Status Codes
+```java
+# 생성
+## status code: 201
+## Headers: Location
+
+# 조회
+## status code: 200
+
+# 업데이트
+## status code: 204
+
+# 삭제
+## status code: 204
+```
+
+==== Common Exceptions
+```java
+# 클라이언트 입력 예외
+## status code: 400
+
+# 인증 예외
+## status code: 401
+
+# 서버 내부 예외
+## status code: 500
+```
+
+== User (사용자)
+=== 사용자 가입
+==== 성공
+===== Request
+include::{snippets}/user-create/http-request.adoc[]
+
+===== Response
+include::{snippets}/user-create/http-response.adoc[]
+
+==== 실패
+===== Request
+include::{snippets}/user-create-fail/http-request.adoc[]
+
+===== Response
+include::{snippets}/user-create-fail/http-response.adoc[]
+
+=== 사용자 조회
+==== 성공
+===== Request
+include::{snippets}/user-detail/http-request.adoc[]
+
+===== Response
+include::{snippets}/user-detail/http-response.adoc[]
+
+==== 실패
+===== Request
+include::{snippets}/user-detail-fail/http-request.adoc[]
+
+===== Response
+include::{snippets}/user-detail-fail/http-response.adoc[]
+
+=== 사용자 업데이트
+==== 성공
+===== Request
+include::{snippets}/user-update/http-request.adoc[]
+
+===== Response
+include::{snippets}/user-update/http-response.adoc[]
+
+==== 실패
+===== Request
+include::{snippets}/user-update-fail/http-request.adoc[]
+
+===== Response
+include::{snippets}/user-update-fail/http-response.adoc[]
+
+=== 사용자 삭제
+==== 성공
+===== Request
+include::{snippets}/user-delete/http-request.adoc[]
+
+===== Response
+include::{snippets}/user-delete/http-response.adoc[]
+
+==== 실패
+===== Request
+include::{snippets}/user-delete-fail/http-request.adoc[]
+
+===== Response
+include::{snippets}/user-delete-fail/http-response.adoc[]
+
+== Post (게시글)
+
+=== 게시글 생성
+==== 성공
+===== Request
+include::{snippets}/post-create/http-request.adoc[]
+
+===== Response
+include::{snippets}/post-create/http-response.adoc[]
+
+==== 실패
+===== Request
+include::{snippets}/post-create-fail/http-request.adoc[]
+
+===== Response
+include::{snippets}/post-create-fail/http-response.adoc[]
+
+=== 게시글 업데이트
+==== 성공
+===== Request
+include::{snippets}/post-update/http-request.adoc[]
+
+===== Response
+include::{snippets}/post-update/http-response.adoc[]
+
+==== 실패
+===== Request
+include::{snippets}/post-update-fail/http-request.adoc[]
+
+===== Response
+include::{snippets}/post-update-fail/http-response.adoc[]
+
+=== 게시글 조회
+==== 성공
+===== Request
+include::{snippets}/post-find/http-request.adoc[]
+
+===== Response
+include::{snippets}/post-find/http-response.adoc[]
+
+==== 실패
+===== Request
+include::{snippets}/post-find-fail/http-request.adoc[]
+
+===== Response
+include::{snippets}/post-find-fail/http-response.adoc[]
+
+=== 게시글 삭제
+==== 성공
+===== Request
+include::{snippets}/post-delete/http-request.adoc[]
+
+===== Response
+include::{snippets}/post-delete/http-response.adoc[]
+
+==== 실패
+===== Request
+include::{snippets}/post-delete-fail/http-request.adoc[]
+
+===== Response
+include::{snippets}/post-delete-fail/http-response.adoc[]

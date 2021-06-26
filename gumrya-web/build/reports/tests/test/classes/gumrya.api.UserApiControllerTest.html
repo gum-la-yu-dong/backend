@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - 유저 컨트롤러 테스트</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>유저 컨트롤러 테스트</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/gumrya.api.html">gumrya.api</a> &gt; UserApiControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">8</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.103s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">사용자 삭제 - 실패</td>
+<td class="success">deleteFailure()</td>
+<td class="success">0.027s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">사용자 정보 조회 - 성공</td>
+<td class="success">find()</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">사용자 정보 조회 - 실패</td>
+<td class="success">findFailure()</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">사용자 가입 - 성공</td>
+<td class="success">signUp()</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">사용자 가입 - 실패</td>
+<td class="success">signUpFailure()</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">사용자 삭제 - 성공</td>
+<td class="success">userDelete()</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">사용자 업데이트 - 성공</td>
+<td class="success">userUpdate()</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">사용자 업데이트 - 실패</td>
+<td class="success">userUpdateFailure()</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2021-06-26 20:36:14.154  INFO 64904 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [gumrya.api.UserApiControllerTest], using SpringBootContextLoader
+2021-06-26 20:36:14.154  INFO 64904 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [gumrya.api.UserApiControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2021-06-26 20:36:14.154  INFO 64904 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [gumrya.api.UserApiControllerTest]: UserApiControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2021-06-26 20:36:14.157  INFO 64904 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration gumrya.GumryaWebApplication for test class gumrya.api.UserApiControllerTest
+2021-06-26 20:36:14.158  INFO 64904 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2021-06-26 20:36:14.159  INFO 64904 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@65876042, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@79bd4876, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@75653de3, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@66947286, org.springframework.test.context.support.DirtiesContextTestExecutionListener@384f8b66, org.springframework.test.context.event.EventPublishingTestExecutionListener@2ba28ae1, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@77742053, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@32b16c79, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@76e1d5f2, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@492bbc4d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@1f8b6b83, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@26601eaf]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::       (v2.3.12.RELEASE)
+
+2021-06-26 20:36:14.177  INFO 64904 --- [    Test worker] gumrya.api.UserApiControllerTest         : Starting UserApiControllerTest on TaeJeongui-MacBookPro.local with PID 64904 (started by gump in /Users/gump/Desktop/study/우아한-테크-코스/레벨3/2021-gumrya/gumrya-web)
+2021-06-26 20:36:14.178  INFO 64904 --- [    Test worker] gumrya.api.UserApiControllerTest         : No active profile set, falling back to default profiles: default
+2021-06-26 20:36:14.399  INFO 64904 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-26 20:36:14.498  INFO 64904 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-06-26 20:36:14.499  INFO 64904 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-06-26 20:36:14.504  INFO 64904 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+2021-06-26 20:36:14.513  INFO 64904 --- [    Test worker] gumrya.api.UserApiControllerTest         : Started UserApiControllerTest in 0.352 seconds (JVM running for 3.251)
+
+MockHttpServletRequest:
+      HTTP Method = DELETE
+      Request URI = /api/users
+       Parameters = {email=[@gmail.com]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = gumrya.api.UserApiController
+           Method = gumrya.api.UserApiController#delete(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = gumrya.exception.InvalidInputException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;]
+     Content type = application/json
+             Body = {&quot;message&quot;:&quot;ì&#x9e;&#x98;ëª»ë&#x90;&#x9c; ì&#x9e;ë ¥ ì&#x98;&#x88;ì&#x8b;&#x9c;&quot;}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/users/signup
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;, Content-Length:&quot;170&quot;]
+             Body = {&quot;email&quot;:&quot;gump@naver.com&quot;,&quot;password&quot;:&quot;나는 잘생긴 권영훈&quot;,&quot;nickname&quot;:&quot;123&quot;,&quot;introduction&quot;:&quot;나는 잘생김&quot;,&quot;profileUrl&quot;:&quot;/user/img&quot;,&quot;githubUrl&quot;:&quot;www.hello.com&quot;}
+    Session Attrs = {}
+
+Handler:
+             Type = gumrya.api.UserApiController
+           Method = gumrya.api.UserApiController#signUp(UserRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Location:&quot;/api/users/1&quot;]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = /api/users/1
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /api/users
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;, Content-Length:&quot;101&quot;]
+             Body = {&quot;email&quot;:null,&quot;password&quot;:null,&quot;nickname&quot;:null,&quot;introduction&quot;:null,&quot;profileUrl&quot;:null,&quot;githubUrl&quot;:null}
+    Session Attrs = {}
+
+Handler:
+             Type = gumrya.api.UserApiController
+           Method = gumrya.api.UserApiController#update(UserRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = gumrya.exception.InvalidInputException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;]
+     Content type = application/json
+             Body = {&quot;message&quot;:&quot;ì&#x9e;&#x98;ëª»ë&#x90;&#x9c; ì&#x9e;ë ¥ ì&#x98;&#x88;ì&#x8b;&#x9c;&quot;}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/users
+       Parameters = {email=[@gmail.com]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = gumrya.api.UserApiController
+           Method = gumrya.api.UserApiController#findUser(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = gumrya.exception.InvalidInputException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;]
+     Content type = application/json
+             Body = {&quot;message&quot;:&quot;ì&#x9e;&#x98;ëª»ë&#x90;&#x9c; ì&#x9e;ë ¥ ì&#x98;&#x88;ì&#x8b;&#x9c;&quot;}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /api/users/signup
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;, Content-Length:&quot;101&quot;]
+             Body = {&quot;email&quot;:null,&quot;password&quot;:null,&quot;nickname&quot;:null,&quot;introduction&quot;:null,&quot;profileUrl&quot;:null,&quot;githubUrl&quot;:null}
+    Session Attrs = {}
+
+Handler:
+             Type = gumrya.api.UserApiController
+           Method = gumrya.api.UserApiController#signUp(UserRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = gumrya.exception.InvalidInputException
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;]
+     Content type = application/json
+             Body = {&quot;message&quot;:&quot;ì&#x9e;&#x98;ëª»ë&#x90;&#x9c; ì&#x9e;ë ¥ ì&#x98;&#x88;ì&#x8b;&#x9c;&quot;}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /api/users
+       Parameters = {email=[xxx@gmail.com]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = gumrya.api.UserApiController
+           Method = gumrya.api.UserApiController#findUser(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:&quot;application/json&quot;]
+     Content type = application/json
+             Body = {&quot;id&quot;:1,&quot;nickname&quot;:&quot;ë&#x82;&#x98;ë&#x8a;&#x94; ì&#x9e;&#x98;ì&#x83;&#x9d;ê¸´ ê¶&#x8c;ì&#x98;&#x81;í&#x9b;&#x88;&quot;,&quot;introduction&quot;:&quot;ë&#x82;&#x98;ë&#x8a;&#x94; ì&#x9e;&#x98;ì&#x83;&#x9d;ê¹&#x80;&quot;,&quot;profileUrl&quot;:&quot;/user/img&quot;,&quot;githubUrl&quot;:&quot;www.hello.com&quot;}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = DELETE
+      Request URI = /api/users
+       Parameters = {email=[xxx@gmail.com]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = gumrya.api.UserApiController
+           Method = gumrya.api.UserApiController#delete(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 204
+    Error message = null
+          Headers = []
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /api/users
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;, Content-Length:&quot;170&quot;]
+             Body = {&quot;email&quot;:&quot;gump@naver.com&quot;,&quot;password&quot;:&quot;나는 잘생긴 권영훈&quot;,&quot;nickname&quot;:&quot;123&quot;,&quot;introduction&quot;:&quot;나는 잘생김&quot;,&quot;profileUrl&quot;:&quot;/user/img&quot;,&quot;githubUrl&quot;:&quot;www.hello.com&quot;}
+    Session Attrs = {}
+
+Handler:
+             Type = gumrya.api.UserApiController
+           Method = gumrya.api.UserApiController#update(UserRequest)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 204
+    Error message = null
+          Headers = []
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 6.8</a> at 2021. 6. 26. 오후 8:36:14</p>
+</div>
+</div>
+</body>
+</html>

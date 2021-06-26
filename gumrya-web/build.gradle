@@ -1,0 +1,4 @@
+dependencies {
+    implementation project(path:':gumrya-common', configuration: 'default')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}

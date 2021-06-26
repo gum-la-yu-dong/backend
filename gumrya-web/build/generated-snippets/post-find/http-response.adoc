@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 92
+
+{"id":1,"title":"검프의 손맛","content":"소금 실패","referenceUrl":"너무짜.com"}
+----

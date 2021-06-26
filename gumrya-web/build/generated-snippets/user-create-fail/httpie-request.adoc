@@ -1,0 +1,12 @@
+[source,bash]
+----
+$ echo '{
+  "email" : null,
+  "password" : null,
+  "nickname" : null,
+  "introduction" : null,
+  "profileUrl" : null,
+  "githubUrl" : null
+}' | http POST 'http://localhost/api/users/signup' \
+    'Content-Type:application/json;charset=UTF-8'
+----

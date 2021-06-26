@@ -1,0 +1,16 @@
+[source,http,options="nowrap"]
+----
+PUT /api/users HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 201
+Host: localhost
+
+{
+  "email" : "gump@naver.com",
+  "password" : "나는 잘생긴 권영훈",
+  "nickname" : "123",
+  "introduction" : "나는 잘생김",
+  "profileUrl" : "/user/img",
+  "githubUrl" : "www.hello.com"
+}
+----

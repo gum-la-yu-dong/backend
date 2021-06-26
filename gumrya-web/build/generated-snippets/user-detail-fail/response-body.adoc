@@ -1,0 +1,6 @@
+[source,options="nowrap"]
+----
+{
+  "message" : "잘못된 입력 예시"
+}
+----
