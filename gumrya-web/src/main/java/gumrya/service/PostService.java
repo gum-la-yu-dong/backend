@@ -21,7 +21,8 @@ public class PostService {
 
     @Transactional
     public PostResponse save(PostRequest request) {
-        User user = userRepository.findById(request.getUserId()).orElseThrow(() -> new NotFoundException("찾을 수 없는 사용자입니다."));
+        User user = userRepository.findById(request.getUserId())
+                .orElseThrow(() -> new NotFoundException("찾을 수 없는 사용자입니다."));
         Post post = new Post(request.getTitle(), request.getContent(), request.getReferenceUrl(), user);
 
         Post savedPost = postRepository.save(post);
@@ -43,17 +44,18 @@ public class PostService {
 
     @Transactional
     public void delete(Long id) {
-        if (!existPost(id)) {
+        if (!existsPost(id)) {
             throw new NotFoundException("찾을 수 없는 게시글입니다.");
         }
         postRepository.deleteById(id);
     }
 
-    private boolean existPost(Long id) {
+    private boolean existsPost(Long id) {
         return postRepository.existsById(id);
     }
 
     private Post findPost(long id) {
-        return postRepository.findById(id).orElseThrow(() -> new NotFoundException("찾을 수 없는 게시글입니다."));
+        return postRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("찾을 수 없는 게시글입니다."));
     }
 }

@@ -71,20 +71,6 @@ class PostServiceTest {
                 .isInstanceOf(NotFoundException.class);
     }
 
-    @DisplayName("게시글 저장 - 실패 - 제목이 null이거나 empty")
-    @ParameterizedTest
-    @NullAndEmptySource
-    void saveFail2(String title) {
-        //given
-        PostRequest postRequest = new PostRequest(user.getId(), post.getId(), title, "본문", "링크");
-
-        willThrow(new NotFoundException("찾을 수 없는 사용자입니다.")).given(userRepository).findById(any(Long.class));
-        //when
-        //then
-        assertThatThrownBy(() -> postService.save(postRequest))
-                .isInstanceOf(NotFoundException.class);
-    }
-
     @DisplayName("게시글 조회 - 성공")
     @Test
     void find() {
