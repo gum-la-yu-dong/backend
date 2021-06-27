@@ -70,7 +70,7 @@ class UserApiControllerTest extends ApiDocument {
     @Test
     void find() throws Exception {
         //given
-        given(userService.findUserByEmail(any(String.class))).willReturn(userResponse);
+        given(userService.findByEmail(any(String.class))).willReturn(userResponse);
 
         //when
         ResultActions saveResponse = 사용자_조회_요청("xxx@gmail.com");
@@ -83,7 +83,7 @@ class UserApiControllerTest extends ApiDocument {
     @Test
     void findFailure() throws Exception {
         //given
-        willThrow(new InvalidInputException("잘못된 입력 예시")).given(userService).findUserByEmail(any(String.class));
+        willThrow(new InvalidInputException("잘못된 입력 예시")).given(userService).findByEmail(any(String.class));
 
         //when
         ResultActions saveResponse = 사용자_조회_요청("@gmail.com");
