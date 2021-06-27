@@ -24,8 +24,9 @@ public class UserResponse {
         this.githubUrl = githubUrl;
     }
 
-    public UserResponse(User user) {
-        this(user.getId(), user.getNickname(), user.getIntroduction(), user.getProfileUrl(), user.getGithubUrl());
+    public static UserResponse toDto(User user) {
+        return new UserResponse(user.getId(), user.getNickname(), user.getIntroduction(), user.getProfileUrl(),
+                user.getGithubUrl());
     }
 
     @Override

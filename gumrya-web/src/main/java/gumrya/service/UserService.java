@@ -25,7 +25,7 @@ public class UserService {
         User user = new User(userRequest.getEmail(), userRequest.getPassword(), userRequest.getNickname(),
                 userRequest.getIntroduction(), userRequest.getProfileUrl(), userRequest.getGithubUrl());
         User saveUser = userRepository.save(user);
-        return new UserResponse(saveUser);
+        return UserResponse.toDto(saveUser);
     }
 
     @Transactional
@@ -43,7 +43,7 @@ public class UserService {
     public UserResponse findByEmail(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new NotFoundException("조회하려는 이메일의 사용자가 없습니다."));
-        return new UserResponse(user);
+        return UserResponse.toDto(user);
     }
 
     @Transactional
