@@ -1,4 +1,0 @@
-[source,bash]
-----
-$ curl 'http://localhost/api/users?email=xxx@gmail.com' -i -X DELETE
-----

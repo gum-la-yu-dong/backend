@@ -1,4 +1,0 @@
-[source,bash]
-----
-$ http DELETE 'http://localhost/api/users?email=@gmail.com'
-----

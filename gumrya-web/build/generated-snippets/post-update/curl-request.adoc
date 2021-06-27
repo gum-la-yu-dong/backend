@@ -1,6 +1,0 @@
-[source,bash]
-----
-$ curl 'http://localhost:8080/api/posts' -i -X PUT \
-    -H 'Content-Type: application/json;charset=UTF-8' \
-    -d '{"id":1,"title":"검프의 손맛","content":"소금 실패","referenceUrl":"너무짜.com"}'
-----
