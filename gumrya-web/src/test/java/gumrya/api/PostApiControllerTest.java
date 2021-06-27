@@ -14,13 +14,10 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.ResultActions;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.*;
-import static org.mockito.BDDMockito.willThrow;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -36,8 +33,8 @@ class PostApiControllerTest extends ApiDocument {
 
     @BeforeEach
     void init() {
-        postRequest = new PostRequest(1L, "검프의 손맛", "소금 실패", "너무짜.com");
-        errorPostRequest = new PostRequest(1L, "", "소금 실패", ".com");
+        postRequest = new PostRequest(1L, 1L, "검프의 손맛", "소금 실패", "너무짜.com");
+        errorPostRequest = new PostRequest(1L, 1L, "", "소금 실패", ".com");
     }
 
     @DisplayName("게시글 저장 - 성공")

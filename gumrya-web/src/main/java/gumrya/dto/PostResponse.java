@@ -1,5 +1,6 @@
 package gumrya.dto;
 
+import gumrya.post.domain.model.Post;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,5 +19,12 @@ public class PostResponse {
         this.title = title;
         this.content = content;
         this.referenceUrl = referenceUrl;
+    }
+
+    public static PostResponse toDto(Post post) {
+        return new PostResponse(
+                post.getId(), post.getTitle(),
+                post.getContent(), post.getReferenceUrl()
+        );
     }
 }
