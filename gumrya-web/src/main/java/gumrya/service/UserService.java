@@ -24,6 +24,7 @@ public class UserService {
         }
         User user = new User(userRequest.getEmail(), userRequest.getPassword(), userRequest.getNickname(),
                 userRequest.getIntroduction(), userRequest.getProfileUrl(), userRequest.getGithubUrl());
+
         User saveUser = userRepository.save(user);
         return UserResponse.toDto(saveUser);
     }

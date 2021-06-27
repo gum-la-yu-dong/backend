@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="738ac554-5571-4e49-9d8e-5c56a2cd918f" name="Default Changelist" comment="" />
+    <list default="true" id="738ac554-5571-4e49-9d8e-5c56a2cd918f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/user/domain/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/gumrya-core/src/main/java/gumrya/user/domain/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/src/main/java/gumrya/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gumrya-web/src/main/java/gumrya/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gumrya-web/src/test/java/gumrya/service/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gumrya-web/src/test/java/gumrya/service/UserServiceTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,27 +120,17 @@
       <recent name="gumrya.api" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GumryaWebApplication">
-    <configuration name="2021-gumrya [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
+  <component name="RunManager" selected="Gradle.UserServiceTest">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Tests in '2021-gumrya.gumrya-web.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -200,6 +195,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="UserServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;gumrya.service.UserServiceTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":gumrya-web:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="GumryaWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="2021-gumrya.gumrya-web.main" />
       <extension name="coverage">
@@ -214,19 +230,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.2021-gumrya [build]" />
       <item itemvalue="Gradle.Tests in '2021-gumrya.gumrya-web.test'" />
       <item itemvalue="Gradle.Tests in 'gumrya.api'" />
       <item itemvalue="Gradle.UserApiControllerTest" />
       <item itemvalue="Spring Boot.GumryaWebApplication" />
+      <item itemvalue="Gradle.UserServiceTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.UserServiceTest" />
         <item itemvalue="Spring Boot.GumryaWebApplication" />
         <item itemvalue="Gradle.Tests in '2021-gumrya.gumrya-web.test'" />
         <item itemvalue="Gradle.UserApiControllerTest" />
         <item itemvalue="Gradle.Tests in 'gumrya.api'" />
-        <item itemvalue="Gradle.2021-gumrya [build]" />
       </list>
     </recent_temporary>
   </component>

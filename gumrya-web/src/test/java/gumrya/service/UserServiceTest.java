@@ -19,6 +19,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.willDoNothing;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("User 비지니스 흐름 테스트")
@@ -36,8 +37,7 @@ class UserServiceTest {
     @BeforeEach
     void setup() {
         this.userRequest = new UserRequest(1L, "ryan@gmail.com", "12342n1k3l", "검프", "나는 검프다", "www.url.com",
-                "github" +
-                        ".com/younghoonkwon");
+                "github.com/younghoonkwon");
         this.user = new User(userRequest.getId(), userRequest.getEmail(), userRequest.getPassword(),
                 userRequest.getNickname(),
                 userRequest.getIntroduction(), userRequest.getProfileUrl(), userRequest.getGithubUrl());
@@ -48,7 +48,7 @@ class UserServiceTest {
     void save() {
         //given
         given(userRepository.save(any(User.class))).willReturn(user);
-        UserResponse userResponse = new UserResponse(user);
+        UserResponse userResponse = UserResponse.toDto(user);
         //when
         UserResponse saveUser = userService.save(userRequest);
         //then
@@ -62,7 +62,8 @@ class UserServiceTest {
         given(userRepository.existsByEmail(any(String.class))).willReturn(true);
         //when
         //then
-        assertThatThrownBy(() -> userService.save(userRequest)).isInstanceOf(DuplicateException.class);
+        assertThatThrownBy(() -> userService.save(userRequest))
+                .isInstanceOf(DuplicateException.class);
     }
 
     @DisplayName("사용자 조회 - 성공")
@@ -70,11 +71,10 @@ class UserServiceTest {
     void findByEmail() {
         //given
         given(userRepository.findByEmail(any(String.class))).willReturn(Optional.of(user));
-        UserResponse userResponse = new UserResponse(user);
         //when
-        UserResponse findEmail = userService.findByEmail("ryan@gmail.com");
+        UserResponse findEmail = userService.findByEmail(user.getEmail());
         //then
-        assertThat(findEmail).isEqualTo(userResponse);
+        assertThat(findEmail).isEqualTo(UserResponse.toDto(user));
     }
 
     @DisplayName("사용자 조회 - 실패")
@@ -84,7 +84,8 @@ class UserServiceTest {
         given(userRepository.findByEmail(any(String.class))).willReturn(Optional.empty());
         //when
         //then
-        assertThatThrownBy(() -> userService.findByEmail("userRequest@email.com")).isInstanceOf(NotFoundException.class);
+        assertThatThrownBy(() -> userService.findByEmail("userRequest@email.com"))
+                .isInstanceOf(NotFoundException.class);
     }
 
     @DisplayName("사용자 삭제 - 성공")
@@ -92,7 +93,7 @@ class UserServiceTest {
     void deleteByEmail() {
         //given
         given(userRepository.existsByEmail(any(String.class))).willReturn(true);
-        given(userRepository.deleteByEmail(any(String.class))).willReturn(1L);
+        willDoNothing().given(userRepository).deleteByEmail(any(String.class));
         //when
         //then
         assertThatCode(() -> userService.deleteByEmail("ryan@gmail.com")).doesNotThrowAnyException();
@@ -105,7 +106,8 @@ class UserServiceTest {
         given(userRepository.existsByEmail(any(String.class))).willReturn(false);
         //when
         //then
-        assertThatThrownBy(() -> userService.deleteByEmail("ryan@gmail.com")).isInstanceOf(NotFoundException.class);
+        assertThatThrownBy(() -> userService.deleteByEmail("ryan@gmail.com"))
+                .isInstanceOf(NotFoundException.class);
     }
 
     @DisplayName("사용자 수정 - 성공")
@@ -125,6 +127,7 @@ class UserServiceTest {
         given(userRepository.findById(any(Long.class))).willReturn(Optional.empty());
         //when
         //then
-        assertThatThrownBy(() -> userService.update(userRequest)).isInstanceOf(NotFoundException.class);
+        assertThatThrownBy(() -> userService.update(userRequest))
+                .isInstanceOf(NotFoundException.class);
     }
 }
