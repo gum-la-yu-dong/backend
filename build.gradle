@@ -31,7 +31,7 @@ subprojects {
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }
-        runtimeOnly 'com.h2database:h2'
+        runtimeOnly 'com.h2database:h2:1.4.200'
     }
 
     test {
@@ -75,6 +75,6 @@ configure(asciidoctorConfigure){
     }
 }
 
-project(":gumrya-admin")
-project(":gumrya-core")
-project(":gumrya-common")
+project(':gumrya-common')
+project(':gumrya-admin')
+project(':gumrya-core')
