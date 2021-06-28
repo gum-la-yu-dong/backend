@@ -1,4 +1,0 @@
-[source,bash]
-----
-$ http GET 'http://localhost/api/users?email=@gmail.com'
-----

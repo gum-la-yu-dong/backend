@@ -1,5 +1,0 @@
-package gumrya;
-
-class GumryaWebApplicationTest {
-
-}
