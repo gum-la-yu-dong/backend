@@ -40,7 +40,7 @@ class UserTest {
 
     }
 
-    @DisplayName("사용자 생성 - 이메일 - 실패")
+    @DisplayName("사용자 생성 - 실패 - email")
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = {" ", "  "})
@@ -54,7 +54,7 @@ class UserTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("사용자 생성 - 패스워드 - 실패")
+    @DisplayName("사용자 생성 - 실패 - password")
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = {" ", "  "})
@@ -68,7 +68,7 @@ class UserTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("사용자 생성 - 닉네임 - 실패")
+    @DisplayName("사용자 생성 - 실패 - nickname")
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = {" ", "  "})
@@ -82,7 +82,7 @@ class UserTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("사용자 생성 - 자기소개 - 실패")
+    @DisplayName("사용자 생성 - 실패 - introduction")
     @ParameterizedTest
     @NullSource
     public void createIntroductionFailure(String text) {
@@ -95,7 +95,7 @@ class UserTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("사용자 생성 - 프로필Url - 실패")
+    @DisplayName("사용자 생성 - 실패 - profileUrl")
     @ParameterizedTest
     @NullSource
     public void createProfileUrlFailure(String text) {
@@ -108,7 +108,7 @@ class UserTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("사용자 생성 - 깃허브Url - 실패")
+    @DisplayName("사용자 생성 - 실패 - githubUrl")
     @ParameterizedTest
     @NullSource
     public void createGithubUrlFailure(String text) {
@@ -149,7 +149,7 @@ class UserTest {
         assertThat(user.getGithubUrl()).isEqualTo(githubUrl);
     }
 
-    @DisplayName("사용자 수정 - 이메일 - 실패 ")
+    @DisplayName("사용자 수정 - 실패 - email")
     @ParameterizedTest
     @NullAndEmptySource
     public void modifyEmailFailure(String text) {
@@ -160,7 +160,7 @@ class UserTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("사용자 수정 - 패스워드 - 실패 ")
+    @DisplayName("사용자 수정 - 실패 - password")
     @ParameterizedTest
     @NullAndEmptySource
     public void modifyPasswordFailure(String text) {
@@ -171,7 +171,7 @@ class UserTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("사용자 수정 - 닉네임 - 실패 ")
+    @DisplayName("사용자 수정 - 실패 - nickName")
     @ParameterizedTest
     @NullAndEmptySource
     public void modifyNicknameFailure(String text) {
@@ -182,7 +182,7 @@ class UserTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("사용자 수정 - 자기소개 - 실패 ")
+    @DisplayName("사용자 수정 - 실패 - introduction")
     @ParameterizedTest
     @NullSource
     public void modifyIntroductionFailure(String text) {
@@ -193,7 +193,7 @@ class UserTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("사용자 수정 - 프로필url - 실패 ")
+    @DisplayName("사용자 수정 - 실패 -profileUrl")
     @ParameterizedTest
     @NullSource
     public void modifyProfileUrlFailure(String text) {
@@ -204,7 +204,7 @@ class UserTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("사용자 수정 - 깃허브url - 실패 ")
+    @DisplayName("사용자 수정 - 실패 githubUrl")
     @ParameterizedTest
     @NullSource
     public void modifyGithubUrlFailure(String text) {
