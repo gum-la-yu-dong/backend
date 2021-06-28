@@ -72,9 +72,9 @@ class UserServiceTest {
         //given
         given(userRepository.findByEmail(any(String.class))).willReturn(Optional.of(user));
         //when
-        UserResponse findEmail = userService.findByEmail(user.getEmail());
+        UserResponse findEmailResponse = userService.findByEmail(userRequest.getEmail());
         //then
-        assertThat(findEmail).isEqualTo(UserResponse.toDto(user));
+        assertThat(findEmailResponse.getId()).isEqualTo(userRequest.getId());
     }
 
     @DisplayName("사용자 조회 - 실패")
