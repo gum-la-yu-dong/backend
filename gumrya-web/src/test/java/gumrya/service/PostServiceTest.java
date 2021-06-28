@@ -11,8 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -22,7 +20,6 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.BDDMockito.willThrow;
 
 @ExtendWith(MockitoExtension.class)
 @DisplayName("Post 비즈니스 흐름 테스트")
@@ -64,7 +61,7 @@ class PostServiceTest {
     @Test
     void saveFail1() {
         //given
-        willThrow(new NotFoundException("찾을 수 없는 사용자입니다.")).given(userRepository).findById(any(Long.class));
+        given(userRepository.findById(any(Long.class))).willReturn(Optional.empty());
         //when
         //then
         assertThatThrownBy(() -> postService.save(postRequest))
@@ -86,7 +83,7 @@ class PostServiceTest {
     @Test
     void findFail() {
         //given
-        willThrow(new NotFoundException("찾을 수 없는 게시글입니다.")).given(postRepository).findById(any(Long.class));
+        given(postRepository.findById(any(Long.class))).willReturn(Optional.empty());
         //when
         //then
         assertThatThrownBy(() -> postService.findById(postRequest.getPostId()))
@@ -109,7 +106,7 @@ class PostServiceTest {
     @Test
     void updateFail() {
         //given
-        willThrow(new NotFoundException("찾을 수 없는 게시글입니다.")).given(postRepository).findById(any(Long.class));
+        given(postRepository.findById(any(Long.class))).willReturn(Optional.empty());
         //when
         //then
         assertThatThrownBy(() -> postService.findById(postRequest.getPostId()))
