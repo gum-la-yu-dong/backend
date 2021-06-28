@@ -1,6 +1,7 @@
 package gumrya.post.domain.model;
 
 import gumrya.exception.InvalidInputException;
+import gumrya.post.domain.model.Post;
 import gumrya.user.domain.model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -12,6 +13,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
 
+@DisplayName("Post 도메인 테스트")
 class PostTest {
 
     private User user;
@@ -30,7 +32,7 @@ class PostTest {
                 .doesNotThrowAnyException();
     }
 
-    @DisplayName("게시글 생성 - referenceUrl - 실패")
+    @DisplayName("게시글 생성 - 실패 - referenceUrl")
     @ParameterizedTest
     @NullSource
     public void createFailByInvalidReferenceUrl(String target) {
@@ -38,7 +40,7 @@ class PostTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("게시글 생성 - user - 실패")
+    @DisplayName("게시글 생성 - 실패 - user")
     @ParameterizedTest
     @NullSource
     public void createFailByInvalidReferenceUrl(User target) {
@@ -46,7 +48,7 @@ class PostTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("게시글 생성 - title - 실패")
+    @DisplayName("게시글 생성 - 실패 - title")
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = " ")
@@ -55,7 +57,7 @@ class PostTest {
                 .isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("게시글 생성 - content - 실패")
+    @DisplayName("게시글 생성 - 실패 - content")
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = " ")
@@ -77,14 +79,14 @@ class PostTest {
         assertThat(post.getReferenceUrl()).isEqualTo("ryan.com");
     }
 
-    @DisplayName("게시글 수정 - referenceUrl - 실패")
+    @DisplayName("게시글 수정 - 실패 - referenceUrl")
     @ParameterizedTest
     @NullSource
     public void modifyFailByInvalidReferenceUrl(String target) {
         assertThatThrownBy(() -> post.modifyReferenceUrl(target)).isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("게시글 수정 - title - 실패")
+    @DisplayName("게시글 수정 - 실패 - title")
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = " ")
@@ -92,7 +94,7 @@ class PostTest {
         assertThatThrownBy(() -> post.modifyTitle(target)).isInstanceOf(InvalidInputException.class);
     }
 
-    @DisplayName("게시글 수정 - content - 실패")
+    @DisplayName("게시글 수정 - 실패 - content")
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = " ")
