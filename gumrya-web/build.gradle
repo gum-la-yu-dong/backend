@@ -1,7 +1,7 @@
 version = '0.0.1'
 
 dependencies {
-    compile project(path:':gumrya-core', configuration: 'default')
+    implementation project(path:':gumrya-core', configuration: 'default')
     implementation project(path:':gumrya-common', configuration: 'default')
     implementation 'org.springframework.boot:spring-boot-starter-web'
 }

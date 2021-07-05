@@ -519,10 +519,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/users/signup HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 201
+Content-Length: 216
 Host: localhost
 
 {
+  "id" : null,
   "email" : "gump@naver.com",
   "password" : "나는 잘생긴 권영훈",
   "nickname" : "123",
@@ -551,10 +552,11 @@ Location: /api/users/1</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/users/signup HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 132
+Content-Length: 147
 Host: localhost
 
 {
+  "id" : null,
   "email" : null,
   "password" : null,
   "nickname" : null,
@@ -650,10 +652,11 @@ Content-Length: 43
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/users HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 201
+Content-Length: 216
 Host: localhost
 
 {
+  "id" : null,
   "email" : "gump@naver.com",
   "password" : "나는 잘생긴 권영훈",
   "nickname" : "123",
@@ -681,10 +684,11 @@ Host: localhost
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/users HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 132
+Content-Length: 147
 Host: localhost
 
 {
+  "id" : null,
   "email" : null,
   "password" : null,
   "nickname" : null,
@@ -775,10 +779,10 @@ Content-Length: 43
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/posts HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 92
+Content-Length: 107
 Host: localhost:8080
 
-{"id":1,"title":"검프의 손맛","content":"소금 실패","referenceUrl":"너무짜.com"}</code></pre>
+{"userId":1,"postId":1,"title":"검프의 손맛","content":"소금 실패","referenceUrl":"너무짜.com"}</code></pre>
 </div>
 </div>
 </div>
@@ -800,10 +804,10 @@ Location: /api/posts/1</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /api/posts HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 67
+Content-Length: 82
 Host: localhost:8080
 
-{"id":1,"title":"","content":"소금 실패","referenceUrl":".com"}</code></pre>
+{"userId":1,"postId":1,"title":"","content":"소금 실패","referenceUrl":".com"}</code></pre>
 </div>
 </div>
 </div>
@@ -831,10 +835,10 @@ Content-Length: 37
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/posts HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 92
+Content-Length: 107
 Host: localhost:8080
 
-{"id":1,"title":"검프의 손맛","content":"소금 실패","referenceUrl":"너무짜.com"}</code></pre>
+{"userId":1,"postId":1,"title":"검프의 손맛","content":"소금 실패","referenceUrl":"너무짜.com"}</code></pre>
 </div>
 </div>
 </div>
@@ -855,10 +859,10 @@ Host: localhost:8080
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /api/posts HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 67
+Content-Length: 82
 Host: localhost:8080
 
-{"id":1,"title":"","content":"소금 실패","referenceUrl":".com"}</code></pre>
+{"userId":1,"postId":1,"title":"","content":"소금 실패","referenceUrl":".com"}</code></pre>
 </div>
 </div>
 </div>
@@ -979,7 +983,7 @@ Content-Length: 37
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-06-16 18:13:23 +0900
+Last updated 2021-06-26 21:15:44 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
